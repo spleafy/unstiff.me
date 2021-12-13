@@ -58,6 +58,7 @@ const Recipe = ({ post, other }: RecipeProps) => {
               headingImgSource={post.headingImgSource}
               type={post.type}
               _id={post._id}
+              key={post._id}
             />
           </>
         ))}

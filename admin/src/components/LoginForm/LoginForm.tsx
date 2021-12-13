@@ -29,7 +29,7 @@ const LoginForm = () => {
     <>
       <div className="ue-errors">
         {errors.map((error) =>
-          error.length > 0 ? <ErrorBox message={error} /> : <></>
+          error.length > 0 ? <ErrorBox message={error} key={error} /> : <></>
         )}
       </div>
       <div className="accounts-form">

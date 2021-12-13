@@ -58,6 +58,7 @@ const Movement = ({ post, other }: MovementProps) => {
               headingImgSource={post.headingImgSource}
               type={post.type}
               _id={post._id}
+              key={post._id}
             />
           </>
         ))}
