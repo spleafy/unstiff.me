@@ -1,8 +1,6 @@
 import type { NextPage } from "next";
-import Navbar from "../components/Navbar/Navbar";
 import Post from "../components/Post/Post";
 import PostProps from "../models/PostProps";
-import ProfilePicture from "../public/profilepicture.jpg";
 
 export async function getServerSideProps(context: any) {
   const response = await fetch("http://localhost:4000/posts");
@@ -18,14 +16,13 @@ export async function getServerSideProps(context: any) {
 const Home: NextPage = ({ posts }: any) => {
   return (
     <>
-      <Navbar />
       <div className="ue-blue-background"></div>
       <div className="ue-main-video">
         <video src="../public/yoga.mp4" controls></video>
       </div>
       <div className="ue-main-cards">
         {posts.length > 0 ? (
-          posts.forEach((post: PostProps) => {
+          posts.map((post: PostProps) => (
             <Post
               title={post.title}
               label={post.label}
@@ -36,8 +33,10 @@ const Home: NextPage = ({ posts }: any) => {
               subtitle={post.subtitle}
               description={post.description}
               headingImgSource={post.headingImgSource}
-            />;
-          })
+              type={post.type}
+              _id={post._id}
+            />
+          ))
         ) : (
           <h1>Unfortunately, there are no posts regarding this subject!</h1>
         )}

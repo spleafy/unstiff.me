@@ -1,52 +1,59 @@
-import React from "react";
-import Image from "next/image";
 import PostProps from "../../models/PostProps";
-import { FiPlay } from "react-icons/fi";
+import PlayButton from "../PlayButton/PlayButton";
+import ReadMoreButton from "../ReadMoreButton/ReadMoreButton";
+import Link from "next/link";
+import Image from "next/image";
+import ProfilePicture from "../../public/profilepicture.jpg";
 
 const Post = (props: PostProps) => {
   return (
-    <div
-      className="ue-person-post"
-      style={props.postColor ? { backgroundColor: props.postColor } : {}}
-    >
-      {props.headingImgSource ? (
-        <div
-          className="ue-person-post__heading-image"
-          style={{ backgroundImage: `url(${props.headingImgSource.src})` }}
-        ></div>
-      ) : (
-        <></>
-      )}
-
-      <div className="ue-person-post__label">{props.label}</div>
-      <div className="ue-person-post__profile">
-        {props.imgSource ? (
+    <Link href={"/" + props.type + "s/" + props._id}>
+      <div
+        className="ue-person-post"
+        style={props.postColor ? { backgroundColor: props.postColor } : {}}
+      >
+        {props.headingImgSource ? (
           <div
-            className="ue-person-post__profile-image"
-            style={{ backgroundImage: `url(${props.imgSource.src})` }}
+            className="ue-person-post__heading-image"
+            style={{ backgroundImage: `url(${ProfilePicture.src})` }}
           ></div>
         ) : (
           <></>
         )}
 
-        <div className="ue-person-post__profile-text">
-          <h1>{props.title}</h1>
-          {props.subtitle ? <p>{props.subtitle}</p> : <></>}
+        <div className="ue-person-post__label">{props.label}</div>
+        <div className="ue-person-post__profile">
+          {props.imgSource ? (
+            <div className="ue-person-post__profile-image">
+              <Image
+                src={ProfilePicture}
+                layout="fixed"
+                width={115}
+                height={95}
+              />
+            </div>
+          ) : (
+            <></>
+          )}
+
+          <div className="ue-person-post__profile-text">
+            {console.log(props.type)}
+            <h1>{props.title}</h1>
+            {props.subtitle ? <p>{props.subtitle}</p> : <></>}
+          </div>
+        </div>
+        {props.description ? (
+          <div className="ue-person-post__description">{props.description}</div>
+        ) : (
+          <></>
+        )}
+
+        <div className="ue-person-post__actions">
+          <ReadMoreButton />
+          <PlayButton />
         </div>
       </div>
-      {props.description ? (
-        <div className="ue-person-post__description">{props.description}</div>
-      ) : (
-        <></>
-      )}
-
-      <div className="ue-person-post__actions">
-        <button className="read-more-button">Прочети Повече</button>
-        <button className="audio-button">
-          <FiPlay color="#fff" fill="#fff" width={25} height={25} />
-        </button>
-      </div>
-    </div>
+    </Link>
   );
 };
 

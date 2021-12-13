@@ -6,6 +6,10 @@
   align-items: center;
   padding: 55px 60px;
 
+  .ue-navbar__logo {
+    cursor: pointer;
+  }
+
   .ue-navbar__links {
     span {
       text-transform: uppercase;
@@ -14,6 +18,10 @@
       margin: 0 30px;
       cursor: pointer;
       color: var(--ue-secondary-color);
+
+      &.ue-active-link {
+        color: #fff;
+      }
     }
   }
 

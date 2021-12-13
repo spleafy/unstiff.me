@@ -22,3 +22,47 @@ input {
     outline: none;
   }
 }
+
+.ue-errors {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 50px;
+  transform: translateX(-50%);
+
+  .ue-error-box {
+    padding: 15px 20px;
+    background: #d8000c;
+    color: #fff;
+    animation: slideIn 2s ease-in-out forwards;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    @keyframes slideIn {
+      from {
+        margin-top: 5px;
+      }
+
+      25% {
+        margin-top: 20px;
+      }
+
+      70% {
+        opacity: 1;
+        margin-top: 20px;
+      }
+
+      90% {
+        opacity: 0;
+        margin-top: 20px;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+  }
+}

@@ -1,4 +1,4 @@
-.ue-main-video {
+.ue-main-header {
   margin: 0 210px;
   display: flex;
   height: 610px;
@@ -11,20 +11,8 @@
   }
 }
 
-.ue-main-cards {
-  padding: 40px 60px;
-  gap: 20px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-
-  > h1 {
-    grid-column: 1/5;
-    text-align: center;
-    color: var(--ue-secondary-color);
-  }
-}
-
 @media only screen and (max-width: 1440px) {
+  .ue-main-header,
   .ue-main-video {
     margin: 0 50px;
   }
@@ -43,6 +31,7 @@
 }
 
 @media only screen and (max-width: 480px) {
+  .ue-main-header,
   .ue-main-video {
     margin: 0 20px;
     height: 265px;

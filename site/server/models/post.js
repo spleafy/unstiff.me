@@ -22,6 +22,14 @@ const postSchema = mongoose.Schema({
   },
   headingImgSource: String,
   postColor: String,
+  type: {
+    type: String,
+    required: true,
+  },
+  author: {
+    type: String,
+    required: true,
+  },
 });
 
 const Post = mongoose.model("Post", postSchema);

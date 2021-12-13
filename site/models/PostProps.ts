@@ -8,4 +8,6 @@ export default interface PostProps {
   audioURL: string;
   headingImgSource?: any;
   postColor?: string;
+  _id?: any;
+  type?: string;
 }
