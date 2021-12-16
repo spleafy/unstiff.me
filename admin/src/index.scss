@@ -23,6 +23,12 @@ input {
   }
 }
 
+:root {
+  --ue-main-color: #42cfc7;
+  --ue-secondary-color: #565656;
+  --ue-main-background-color: #f3f3f3;
+}
+
 .ue-errors {
   position: absolute;
   top: 0;
@@ -65,4 +71,34 @@ input {
       }
     }
   }
+}
+
+a {
+  color: #000;
+  font-size: 20px;
+}
+
+.ue-underline {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    height: 1px;
+    width: 0%;
+    transition: width 0.2s ease-in-out;
+    background: #000;
+    left: 0;
+  }
+
+  &:hover {
+    &::after {
+      width: 100%;
+    }
+  }
+}
+
+.ue-admin-page {
+  padding: 40px 60px;
 }

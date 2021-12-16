@@ -28,8 +28,8 @@ const LoginForm = () => {
   return (
     <>
       <div className="ue-errors">
-        {errors.map((error) =>
-          error.length > 0 ? <ErrorBox message={error} key={error} /> : <></>
+        {errors.map((error, index) =>
+          error.length > 0 ? <ErrorBox key={index} message={error} /> : ""
         )}
       </div>
       <div className="accounts-form">
@@ -44,7 +44,7 @@ const LoginForm = () => {
               headers: { enctype: "multipart/form-data" },
               body: createFormData(values),
             }).then((response) => response.json());
-            if (response.data.login == false) {
+            if (response.data.login === false) {
               setErrors([...errors, "Invalid Credentials"]);
             } else {
             }

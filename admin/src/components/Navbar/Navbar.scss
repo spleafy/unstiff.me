@@ -1,0 +1,21 @@
+.ue-navbar {
+  height: 50px;
+  border-bottom: 1px solid #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+
+  img {
+    height: 60%;
+  }
+
+  .ue-navbar-links {
+    display: flex;
+    gap: 30px;
+
+    a {
+      text-decoration: none;
+    }
+  }
+}
