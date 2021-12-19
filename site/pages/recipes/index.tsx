@@ -2,10 +2,21 @@ import React from "react";
 import Posts from "../../components/Posts/Posts";
 
 const Recipes = ({ posts }: any) => {
+  console.log(posts);
+
+  const filteredPosts: any = [];
+  posts.forEach((post: any) => {
+    if (post.recipe != null) {
+      filteredPosts.push({ recipe: post.recipe, _id: post._id });
+    }
+  });
+
+  console.log(filteredPosts);
+
   return (
     <div className="ue-main-cards">
       {posts.length > 0 ? (
-        <Posts posts={posts} />
+        <Posts posts={filteredPosts} />
       ) : (
         <h1>Unfortunately, there are no posts regarding this subject!</h1>
       )}
@@ -14,7 +25,7 @@ const Recipes = ({ posts }: any) => {
 };
 
 export async function getServerSideProps() {
-  const response = await fetch(`http://localhost:4000/recipes`);
+  const response = await fetch(`http://localhost:4000/posts`);
   const data = await response.json();
 
   return {

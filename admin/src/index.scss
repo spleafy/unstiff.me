@@ -14,7 +14,8 @@ code {
     monospace;
 }
 
-input {
+input,
+textarea {
   border-radius: 5px;
   border: 2px solid rgba(0, 0, 0, 0.2);
 
@@ -97,8 +98,34 @@ a {
       width: 100%;
     }
   }
+
+  &.active-link {
+    &::after {
+      width: 100% !important;
+    }
+  }
 }
 
 .ue-admin-page {
   padding: 40px 60px;
+}
+
+button {
+  &:active {
+    animation: clickButton 0.1s ease-in-out forwards;
+  }
+
+  @keyframes clickButton {
+    from {
+      transform: scale(1);
+    }
+
+    75% {
+      transform: scale(0.9);
+    }
+
+    to {
+      transform: scale(1);
+    }
+  }
 }

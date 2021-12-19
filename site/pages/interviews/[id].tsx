@@ -2,6 +2,8 @@ import PostProps from "../../models/PostProps";
 import PlayButton from "../../components/PlayButton/PlayButton";
 import ProfilePicture from "../../public/profilepicture.jpg";
 import Posts from "../../components/Posts/Posts";
+import { idPush } from "..";
+import { definePostLabel } from "../../components/Post/Post";
 
 interface InterviewProps {
   post: PostProps;
@@ -9,22 +11,38 @@ interface InterviewProps {
 }
 
 export async function getServerSideProps({ params }: any) {
-  const response = await fetch(`http://localhost:4000/interviews/${params.id}`);
+  const response = await fetch(`http://localhost:4000/post/${params.id}`);
   const data = await response.json();
   return {
     props: {
-      post: data.data.post,
-      other: data.data.other,
+      post: data.data.post[0],
     },
   };
 }
 
-const Interview = ({ post, other }: InterviewProps) => {
+const Interview = ({ post }: any) => {
+  const otherPosts: any = [
+    {
+      recipe: post.recipe,
+      _id: post._id,
+    },
+    {
+      movement: post.movement,
+      _id: post._id,
+    },
+    {
+      sutra: post.sutra,
+      _id: post._id,
+    },
+  ];
+
   return (
     <>
       <div className="ue-main-header">
         <div>
-          <div className="ue-main-header__label">{post.label}</div>
+          <div className="ue-main-header__label">
+            {definePostLabel(post.interview.type)}
+          </div>
           <div className="ue-main-header__person">
             {ProfilePicture.src ? (
               <div className="ue-main-header__image">
@@ -35,16 +53,18 @@ const Interview = ({ post, other }: InterviewProps) => {
             )}
 
             <div className="ue-main-header__text">
-              <h1>{post.title}</h1>
-              <p>{post.subtitle}</p>
+              <h1>{post.interview.title}</h1>
+              <p>{post.interview.subtitle}</p>
               <PlayButton width={40} height={40} />
             </div>
           </div>
-          <div className="ue-main-header__description">{post.description}</div>
+          <div className="ue-main-header__description">
+            {post.interview.description}
+          </div>
         </div>
       </div>
       <div className="ue-main-cards">
-        <Posts posts={other} />
+        <Posts posts={otherPosts} />
       </div>
     </>
   );

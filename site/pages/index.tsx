@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Posts from "../components/Posts/Posts";
+import PostProps from "../models/PostProps";
 
 export async function getServerSideProps(context: any) {
   const response = await fetch("http://localhost:4000/posts");
@@ -7,7 +8,7 @@ export async function getServerSideProps(context: any) {
 
   return {
     props: {
-      posts: data,
+      posts: data.data.posts,
     },
   };
 }
@@ -43,7 +44,33 @@ export const chunkify = (a: any, n: any, balanced: any) => {
   return out;
 };
 
+export const idPush = (posts: any) => {
+  let allPosts: any = [];
+
+  posts.forEach((post: any) => {
+    Object.keys(post).forEach((key) => {
+      if (key == "recipe" && post.recipe != null) {
+        post.recipe._id = post._id;
+        allPosts.push(post.recipe);
+      } else if (key == "movement" && post.movement != null) {
+        post.movement._id = post._id;
+        allPosts.push(post.movement);
+      } else if (key == "interview" && post.interview != null) {
+        post.interview._id = post._id;
+        allPosts.push(post.interview);
+      } else if (key == "sutra" && post.sutra != null) {
+        post.sutra._id = post._id;
+        allPosts.push(post.sutra);
+      }
+    });
+  });
+
+  return allPosts;
+};
+
 const Home: NextPage = ({ posts }: any) => {
+  const allPosts = idPush(posts);
+
   return (
     <>
       <div className="ue-blue-background"></div>

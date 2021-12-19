@@ -1,13 +1,10 @@
 export default interface PostProps {
-  label: string;
-  imgSource?: StaticImageData;
+  imgSource?: string;
   title: string;
   subtitle?: string;
   description?: string;
-  redirectURL: string;
   audioURL: string;
   headingImgSource?: any;
-  postColor?: string;
   _id?: any;
   type?: string;
 }

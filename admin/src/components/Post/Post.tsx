@@ -1,6 +1,7 @@
 import React from "react";
 import PostProps from "../../types/PostProps";
 import "./Post.scss";
+import { FiTrash2, FiEdit2 } from "react-icons/fi";
 
 const Post = (props: PostProps) => {
   const definePostLabel = (type: any) => {
@@ -64,6 +65,18 @@ const Post = (props: PostProps) => {
       </div>
       {props.description ? (
         <div className="ue-person-post__description">{props.description}</div>
+      ) : (
+        <></>
+      )}
+      {props.action ? (
+        <div className="ue-person-post__actions">
+          <button>
+            <FiEdit2 />
+          </button>
+          <button>
+            <FiTrash2 color="#fff" />
+          </button>
+        </div>
       ) : (
         <></>
       )}

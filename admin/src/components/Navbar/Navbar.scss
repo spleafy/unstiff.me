@@ -19,3 +19,19 @@
     }
   }
 }
+
+@media only screen and (max-width: 800px) {
+  .ue-navbar {
+    padding: 0 10px;
+
+    h1 {
+      font-size: 18px;
+    }
+
+    .ue-navbar-links {
+      span {
+        font-size: 16px !important;
+      }
+    }
+  }
+}

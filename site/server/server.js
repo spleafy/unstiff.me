@@ -21,67 +21,17 @@ const db = mongoose.connection;
 
 app.get("/posts", async (req, res) => {
   const posts = await Post.find({});
-  res.json(posts);
+
+  res.json(new ResponseMessage(200, { posts: posts }));
 });
+// Get A Single Post
 
-// Get All Interviews
+app.get("/post/:postId", async (req, res) => {
+  const postId = req.params.postId;
 
-app.post("/interviews", upload.none(), async (req, res) => {
-  const post = await new Post(req.body).save();
+  const post = await Post.find({ _id: postId });
 
   res.json(new ResponseMessage(200, { post }));
-});
-
-app.get("/interviews", async (req, res) => {
-  const posts = await Post.find({ type: "interview" });
-  res.json(new ResponseMessage(200, { posts }));
-});
-
-// Get One Interview
-
-app.get("/interviews/:interviewId", async (req, res) => {
-  const interviewId = req.params.interviewId;
-
-  const post = await Post.findOne({ type: "interview", _id: interviewId });
-  const other = await Post.find({ author: post.author });
-  res.json(new ResponseMessage(200, { post, other }));
-});
-
-// Get All Recipes
-
-app.get("/recipes", async (req, res) => {
-  const posts = await Post.find({ type: "recipe" });
-  res.json(new ResponseMessage(200, { posts }));
-});
-
-// Get One Recipe
-
-app.get("/recipes/:recipeId", async (req, res) => {
-  const recipeId = req.params.recipeId;
-
-  const post = await Post.findOne({ type: "recipe", _id: recipeId });
-  console.log(post);
-
-  const other = await Post.find({ author: post.author });
-  res.json(new ResponseMessage(200, { post, other }));
-});
-
-// Get All Movements
-
-app.get("/movements", async (req, res) => {
-  const posts = await Post.find({ type: "movement" });
-  res.json(new ResponseMessage(200, { posts }));
-});
-
-// Get One Movement
-
-app.get("/movements/:movementId", async (req, res) => {
-  const movementId = req.params.movementId;
-
-  const post = await Post.findOne({ type: "movement", _id: movementId });
-
-  const other = await Post.find({ author: post.author });
-  res.json(new ResponseMessage(200, { post, other }));
 });
 
 // Setup Listen Port
