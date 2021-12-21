@@ -3,7 +3,7 @@ import Posts from "../components/Posts/Posts";
 import PostProps from "../models/PostProps";
 
 export async function getServerSideProps(context: any) {
-  const response = await fetch("http://localhost:4000/posts");
+  const response = await fetch("http://localhost:9090/posts");
   const data = await response.json();
 
   return {
@@ -75,7 +75,7 @@ const Home: NextPage = ({ posts }: any) => {
     <>
       <div className="ue-blue-background"></div>
       <div className="ue-main-video">
-        <video src="../public/yoga.mp4" controls></video>
+        <video src="yoga.mp4" controls></video>
       </div>
       <div className="ue-main-cards">
         {posts.length > 0 ? (

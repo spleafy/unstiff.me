@@ -12,10 +12,18 @@
   .ue-person-post__heading-image {
     margin-left: -20px;
     height: 310px;
+    max-height: 310px;
     width: calc(100% + 20px);
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    img {
+      height: 100%;
+      position: absolute;
+    }
   }
 
   .ue-person-post__label {
@@ -43,8 +51,13 @@
       height: 95px;
       border-radius: 50%;
       overflow: hidden;
-      background-size: cover;
-      background-position: center center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        height: 100%;
+      }
     }
 
     .ue-person-post__profile-text {

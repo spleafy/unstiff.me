@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const mongoID = mongoose.mongo.ObjectID;
 const Post = require("./models/post");
 const ResponseMessage = require("./models/responseMessage");
 const multer = require("multer");
@@ -29,9 +30,18 @@ app.get("/posts", async (req, res) => {
 app.get("/post/:postId", async (req, res) => {
   const postId = req.params.postId;
 
-  const post = await Post.find({ _id: postId });
+  let post = [{}];
 
-  res.json(new ResponseMessage(200, { post }));
+  if (mongoID.isValid(postId)) {
+    post = await Post.find({ _id: postId });
+    if (post.length < 1) {
+      post = [{}];
+    }
+  } else {
+    post = [{}];
+  }
+
+  res.json(new ResponseMessage(200, { post: post[0] }));
 });
 
 // Setup Listen Port

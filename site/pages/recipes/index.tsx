@@ -15,10 +15,12 @@ const Recipes = ({ posts }: any) => {
 
   return (
     <div className="ue-main-cards">
-      {posts.length > 0 ? (
+      {posts.length > 0 && posts[0].recipe ? (
         <Posts posts={filteredPosts} />
       ) : (
-        <h1>Unfortunately, there are no posts regarding this subject!</h1>
+        <h1 style={{ width: "100%", textAlign: "center" }}>
+          Unfortunately, there are no posts regarding this subject!
+        </h1>
       )}
     </div>
   );

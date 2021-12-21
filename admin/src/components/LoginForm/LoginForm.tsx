@@ -4,8 +4,11 @@ import * as yup from "yup";
 import "../Forms.scss";
 import { useState } from "react";
 import ErrorBox from "../ErrorBox/ErrorBox";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
+  const navigate = useNavigate();
+
   const schema = yup.object().shape({
     username: yup
       .string()
@@ -47,6 +50,8 @@ const LoginForm = () => {
             if (response.data.login === false) {
               setErrors([...errors, "Invalid Credentials"]);
             } else {
+              localStorage.setItem("token", response.data.token);
+              return navigate("./admin");
             }
           }}
           validationSchema={schema}

@@ -40,10 +40,9 @@ const Post = (props: PostProps) => {
       style={{ backgroundColor: definePostColor(props.type) }}
     >
       {props.headingImgSource ? (
-        <div
-          className="ue-person-post__heading-image"
-          style={{ backgroundImage: `url(${props.headingImgSource})` }}
-        ></div>
+        <div className="ue-person-post__heading-image">
+          <img src={props.headingImgSource} alt="" />
+        </div>
       ) : (
         <></>
       )}
