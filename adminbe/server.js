@@ -60,6 +60,10 @@ const checkUserState = require("./api/chekUserState");
 
 const verifyToken = require("./middleware/verifyToken");
 
+const changePassword = require("./api/changePassword");
+
+const changeUsername = require("./api/changeUsername");
+
 app.post("/login", upload.none(), userLogin);
 
 app.post(
@@ -90,9 +94,17 @@ app.post(
   updatePost
 );
 
+// app.post("/create/admin", upload.none(), (req, res) => {
+//   new Admin(req.body).save();
+// });
+
 app.delete("/post/:postId", deletePost);
 
 app.get("/user", verifyToken, checkUserState);
+
+app.put("/user/password", verifyToken, upload.none(), changePassword);
+
+app.put("/user/username", verifyToken, upload.none(), changeUsername);
 
 app.listen(PORT, () => {
   console.log(`Admin system listening on port ${PORT}`);

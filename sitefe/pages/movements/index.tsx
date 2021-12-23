@@ -22,7 +22,9 @@ const Movements = ({ posts }: any) => {
 };
 
 export async function getServerSideProps() {
-  const response = await fetch(`http://dockerpi.asuscomm.com:4040/posts`);
+  const response = await fetch(
+    `http://${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_SIBE_PORT}/posts`
+  );
   const data = await response.json();
 
   return {

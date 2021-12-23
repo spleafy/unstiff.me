@@ -82,5 +82,7 @@ module.exports = async (req, res) => {
   };
 
   const post = await Post.findOneAndUpdate({ _id: id }, postToUpdate);
-  res.redirect("http://dockerpi.asuscomm.com:7070/admin/edit/" + id);
+  res.redirect(
+    `${process.env.API_URL}:${process.env.ADMIN_FE_PORT}/admin/edit/` + id
+  );
 };

@@ -5,6 +5,8 @@ import * as yup from "yup";
 import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import CreateEditForm from "../CreateEditForm/CreateEditForm";
+import { checkUserState } from "../services/checkUserState";
+import Loader from "../Loader/Loader";
 
 const EditPage = () => {
   const schema = yup.object().shape({
@@ -13,30 +15,17 @@ const EditPage = () => {
 
   const [loggedIn, setLoggedIn] = useState(false);
 
+  const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
 
   useEffect(() => {
-    const checkUserState = async () => {
-      const token = "Bearer " + localStorage.getItem("token");
-
-      const response = await fetch("http://dockerpi.asuscomm.com:9090/user", {
-        method: "GET",
-        headers: {
-          authorization: token,
-        },
-      });
-
-      const data = await response.json();
-
-      if (data.data.id.length > 0 && data.status == 200) {
-        setLoggedIn(true);
-      } else {
-        setLoggedIn(false);
-        navigate("/");
-      }
+    const effect = async () => {
+      await checkUserState(navigate, setLoggedIn);
+      setLoading(false);
     };
 
-    checkUserState();
+    effect();
   }, []);
 
   const { postId } = useParams();
@@ -46,7 +35,7 @@ const EditPage = () => {
       const token = "Bearer " + localStorage.getItem("token");
 
       const post = await fetch(
-        `http://dockerpi.asuscomm.com:9090/post/${postId}`,
+        `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_ADBE_PORT}/post/${postId}`,
         {
           method: "GET",
           headers: {
@@ -56,8 +45,6 @@ const EditPage = () => {
       );
 
       const data = await post.json();
-
-      console.log(data);
 
       if (data.status == 200) {
         setPost(data.data.post);
@@ -101,6 +88,7 @@ const EditPage = () => {
 
   return (
     <>
+      <Loader loading={loading} />
       {loggedIn ? (
         <>
           <Navbar />
@@ -161,7 +149,10 @@ const EditPage = () => {
                 {(props) => (
                   <CreateEditForm
                     props={props}
-                    url={"http://dockerpi.asuscomm.com:9090/post/" + postId}
+                    url={
+                      `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_ADBE_PORT}/post/` +
+                      postId
+                    }
                     method={"POST"}
                   />
                 )}

@@ -7,8 +7,6 @@ interface PlayButtonProps {
 }
 
 const PlayButton = ({ width, height, playing }: PlayButtonProps) => {
-  console.log(playing);
-
   return (
     <button
       className="audio-button"

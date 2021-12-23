@@ -1,0 +1,39 @@
+.ue-settings-page {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 60px;
+  gap: 60px;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+
+    h1 {
+      margin-bottom: 20px;
+      margin-top: 0;
+    }
+
+    label {
+      margin-bottom: 10px;
+    }
+
+    input {
+      padding: 10px 15px;
+    }
+
+    .ue-admin-error {
+      margin-bottom: 20px;
+      margin-top: 10px;
+      color: red;
+    }
+
+    button {
+      padding: 10px 15px;
+      background: var(--ue-main-color);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
+}

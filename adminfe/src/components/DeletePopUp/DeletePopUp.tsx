@@ -13,7 +13,7 @@ const DeletePopUp = (props: DeleteProps) => {
     const token = "Bearer " + localStorage.getItem("token");
 
     const response = await fetch(
-      `http://dockerpi.asuscomm.com:9090/post/${props.postId}`,
+      `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_ADBE_PORT}/post/${props.postId}`,
       {
         method: "DELETE",
         headers: {

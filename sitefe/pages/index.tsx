@@ -3,7 +3,10 @@ import Posts from "../components/Posts/Posts";
 import PostProps from "../models/PostProps";
 
 export async function getServerSideProps(context: any) {
-  const response = await fetch("http://dockerpi.asuscomm.com:4040/posts");
+  const response = await fetch(
+    `http://${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_SIBE_PORT}/posts`
+  );
+
   const data = await response.json();
 
   return {

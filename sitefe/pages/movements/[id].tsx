@@ -1,3 +1,4 @@
+import { useState } from "react";
 import PostProps from "../../models/PostProps";
 import PlayButton from "../../components/PlayButton/PlayButton";
 import ProfilePicture from "../../public/profilepicture.jpg";
@@ -7,7 +8,7 @@ import Link from "next/link";
 
 export async function getServerSideProps({ params }: any) {
   const response = await fetch(
-    `http://dockerpi.asuscomm.com:4040/post/${params.id}`
+    `http://${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_SIBE_PORT}/post/${params.id}`
   );
   const data = await response.json();
   return {
@@ -37,12 +38,26 @@ const Movement = ({ post }: any) => {
     ];
   }
 
+  const [playing, setPlaying] = useState(false);
+
+  const toggleAudio = async () => {
+    const audio = document.querySelector("audio");
+    if (audio && audio.error == null && !playing) {
+      await audio.play();
+      setPlaying(true);
+    } else if (audio && audio.error == null && playing) {
+      await audio.pause();
+      setPlaying(false);
+    }
+  };
+
   return (
     <>
       {post.movement ? (
         <>
           <div className="ue-blue-background"></div>
           <div className="ue-main-header">
+            <audio src={post.movement.audioURL}></audio>
             <div>
               <div className="ue-main-header__label">
                 {definePostLabel(post.movement.type)}
@@ -52,7 +67,7 @@ const Movement = ({ post }: any) => {
                   <div className="ue-main-header__image">
                     <img
                       src={
-                        "http://dockerpi.asuscomm.com:9090/images/" +
+                        `http://${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_ADBE_PORT}/images/` +
                         post.movement.imgSource
                       }
                     />
@@ -64,7 +79,13 @@ const Movement = ({ post }: any) => {
                 <div className="ue-main-header__text">
                   <h1>{post.movement.title}</h1>
                   <p>{post.movement.subtitle}</p>
-                  <PlayButton width={40} height={40} />
+                  <div
+                    onClick={() => {
+                      toggleAudio();
+                    }}
+                  >
+                    <PlayButton width={40} height={40} playing={false} />
+                  </div>
                 </div>
               </div>
               <div className="ue-main-header__description">

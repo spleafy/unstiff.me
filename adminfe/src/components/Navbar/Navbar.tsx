@@ -60,7 +60,16 @@ const Navbar = () => {
         >
           <span>Create</span>
         </Link>
-
+        <Link
+          to="/admin/settings"
+          className={
+            router.pathname === "/admin/settings"
+              ? "active-link ue-underline"
+              : "ue-underline"
+          }
+        >
+          <span>Settings</span>
+        </Link>
         <span
           style={{ color: "#ff0033", cursor: "pointer", whiteSpace: "nowrap" }}
           onClick={() => {

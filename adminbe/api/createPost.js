@@ -76,5 +76,7 @@ module.exports = async (req, res) => {
 
   const post =
     req.body["post-name"] != "" ? await new Post(postToSave).save() : "";
-  res.redirect("http://dockerpi.asuscomm.com:7070/admin/create");
+  res.redirect(
+    `${process.env.API_URL}:${process.env.ADMIN_FE_PORT}/admin/create`
+  );
 };

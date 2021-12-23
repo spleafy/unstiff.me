@@ -18,39 +18,37 @@ const CreateEditForm = ({ props, method, url }: any) => {
     return URL.createObjectURL(file);
   };
 
-  console.log(props.values);
-
   const [interviewPersonImage, setInterviewPersonImage] = useState(
     props.values["interview-person-image"]
-      ? "http://dockerpi.asuscomm.com:9090/images/" +
+      ? `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_ADBE_PORT}/images/` +
           props.values["interview-person-image"]
       : ""
   );
 
   const [interviewHeadingImage, setInterviewHeadingImage] = useState(
     props.values["interview-heading-image"]
-      ? "http://dockerpi.asuscomm.com:9090/images/" +
+      ? `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_ADBE_PORT}/images/` +
           props.values["interview-heading-image"]
       : ""
   );
 
   const [recipeHeadingImage, setRecipeHeadingImage] = useState(
     props.values["recipe-heading-image"]
-      ? "http://dockerpi.asuscomm.com:9090/images/" +
+      ? `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_ADBE_PORT}/images/` +
           props.values["recipe-heading-image"]
       : ""
   );
 
   const [movementHeadingImage, setMovementHeadingImage] = useState(
     props.values["movement-heading-image"]
-      ? "http://dockerpi.asuscomm.com:9090/images/" +
+      ? `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_ADBE_PORT}/images/` +
           props.values["movement-heading-image"]
       : ""
   );
 
   const [sutraHeadingImage, setSutraHeadingImage] = useState(
     props.values["sutra-heading-image"]
-      ? "http://dockerpi.asuscomm.com:9090/images/" +
+      ? `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_ADBE_PORT}/images/` +
           props.values["sutra-heading-image"]
       : ""
   );

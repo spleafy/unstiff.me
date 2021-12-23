@@ -5,55 +5,46 @@ import { Link, useNavigate } from "react-router-dom";
 import "./AdminPage.scss";
 import { FiTrash2, FiEdit2 } from "react-icons/fi";
 import DeletePopUp from "../DeletePopUp/DeletePopUp";
+import { checkUserState } from "../services/checkUserState";
+import Loader from "../Loader/Loader";
 
 const AdminPage = () => {
   const [posts, setPosts] = useState([]);
 
   const [loggedIn, setLoggedIn] = useState(false);
 
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    const fetchData = async () => {
-      const token = "Bearer " + localStorage.getItem("token");
+    const effect = async () => {
+      const fetchData = async () => {
+        const token = "Bearer " + localStorage.getItem("token");
 
-      const response = await fetch("http://dockerpi.asuscomm.com:9090/posts", {
-        method: "GET",
-        headers: {
-          authorization: token,
-        },
-      });
-      const data: any = await response.json();
+        const response = await fetch(
+          `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_ADBE_PORT}/posts`,
+          {
+            method: "GET",
+            headers: {
+              authorization: token,
+            },
+          }
+        );
+        const data: any = await response.json();
 
-      setPosts(data.data.posts);
+        setPosts(data.data.posts);
+      };
+
+      await checkUserState(navigate, setLoggedIn);
+
+      await fetchData();
+
+      setLoading(false);
     };
 
-    fetchData();
+    effect();
   }, []);
 
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const checkUserState = async () => {
-      const token = "Bearer " + localStorage.getItem("token");
-
-      const response = await fetch("http://dockerpi.asuscomm.com:9090/user", {
-        method: "GET",
-        headers: {
-          authorization: token,
-        },
-      });
-
-      const data = await response.json();
-
-      if (data.data.id.length > 0 && data.status == 200) {
-        setLoggedIn(true);
-      } else {
-        setLoggedIn(false);
-        navigate("/");
-      }
-    };
-
-    checkUserState();
-  }, []);
 
   const handleDeleteClick: any = (id: string) => {
     if (deleteRender == true) return;
@@ -67,6 +58,7 @@ const AdminPage = () => {
 
   return (
     <>
+      <Loader loading={loading} />
       {loggedIn ? (
         <>
           <Navbar />

@@ -6,42 +6,32 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Post from "../Post/Post";
 import CreateEditForm from "../CreateEditForm/CreateEditForm";
+import { checkUserState } from "../services/checkUserState";
+import Loader from "../Loader/Loader";
 
 const CreatePage = () => {
   const schema = yup.object().shape({
     "post-name": yup.string().required("This field is required!"),
   });
 
+  const [loading, setLoading] = useState(true);
+
   const [loggedIn, setLoggedIn] = useState(false);
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    const checkUserState = async () => {
-      const token = "Bearer " + localStorage.getItem("token");
-
-      const response = await fetch("http://dockerpi.asuscomm.com:9090/user", {
-        method: "GET",
-        headers: {
-          authorization: token,
-        },
-      });
-
-      const data = await response.json();
-
-      if (data.data.id.length > 0 && data.status == 200) {
-        setLoggedIn(true);
-      } else {
-        setLoggedIn(false);
-        navigate("/");
-      }
+    const effect = async () => {
+      await checkUserState(navigate, setLoggedIn);
+      setLoading(false);
     };
 
-    checkUserState();
+    effect();
   }, []);
 
   return (
     <>
+      <Loader loading={loading} />
       {loggedIn ? (
         <>
           <Navbar />
@@ -73,7 +63,7 @@ const CreatePage = () => {
               {(props) => (
                 <CreateEditForm
                   props={props}
-                  url={"http://dockerpi.asuscomm.com:9090/post"}
+                  url={`${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_ADBE_PORT}/post`}
                   method={"POST"}
                 />
               )}
