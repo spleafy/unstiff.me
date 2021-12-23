@@ -1,0 +1,59 @@
+.accounts-form {
+  width: 400px;
+  padding: 40px;
+  display: block;
+  flex-direction: column;
+  box-shadow: 0px 0px 40px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+
+  h1 {
+    font-size: 24pt;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 40px;
+    color: rgb(31, 28, 37);
+
+    span {
+      color: #42cfc7;
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    label {
+      margin: 10px 0;
+    }
+
+    input {
+      padding: 10px 15px;
+      color: rgb(114, 113, 113);
+      margin-bottom: 10px;
+    }
+
+    .accounts-form__errors {
+      color: red;
+    }
+
+    button {
+      height: 50px;
+      cursor: pointer;
+      display: inline-block;
+      border: none;
+      border-radius: 5px;
+      background-color: #42cfc7;
+      color: rgb(39, 39, 39);
+      font-weight: 800;
+      margin-top: 30px;
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .accounts-form {
+    box-shadow: none;
+    width: 100%;
+  }
+}
