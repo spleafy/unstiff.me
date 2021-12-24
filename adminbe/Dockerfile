@@ -9,6 +9,8 @@ ENV API_URL "http://164.90.194.91"
 ENV TOKEN_SECRET "supersecret"
 ENV SESSION_SECRET "supersecret"
 
+ADD ./images /usr/src/app/images
+
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
