@@ -16,9 +16,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-require("dotenv").config({
-  path: "config/.env",
-});
+require("dotenv");
 
 const PORT = process.env.ADMIN_PORT ?? 9090;
 

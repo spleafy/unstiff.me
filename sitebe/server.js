@@ -6,9 +6,7 @@ const ResponseMessage = require("./models/responseMessage");
 const multer = require("multer");
 const upload = multer();
 
-require("dotenv").config({
-  path: "config/.env",
-});
+require("dotenv");
 
 const app = express();
 
