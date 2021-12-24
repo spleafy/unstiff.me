@@ -4,8 +4,8 @@ FROM node:14-alpine
 WORKDIR /usr/src/app
 
 ENV ADMIN_PORT "9090"
-ENV ADMIN_FE_PORT "7070"
-ENV API_URL "http://dockerpi.asuscomm.com"
+ENV ADMIN_FE_PORT "3000"
+ENV API_URL "http://164.90.194.91"
 ENV TOKEN_SECRET "supersecret"
 ENV SESSION_SECRET "supersecret"
 
