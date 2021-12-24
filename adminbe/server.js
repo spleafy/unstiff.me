@@ -40,7 +40,7 @@ app.use(
 
 app.use("/images", express.static("images"));
 
-mongoose.connect("mongodb://localhost:27017/Unstiff");
+mongoose.connect("mongodb://164.90.194.91:27017/Unstiff");
 
 const userLogin = require("./api/userLogin");
 
