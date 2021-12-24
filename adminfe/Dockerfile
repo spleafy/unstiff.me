@@ -14,4 +14,4 @@ COPY . .
 # Expose port
 EXPOSE 7070
 # Start the app
-CMD [ "yarn", "start" ]
+CMD [ "yarn", "build" ]
