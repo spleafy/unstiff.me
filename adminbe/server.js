@@ -42,7 +42,7 @@ app.use(
 
 app.use("/images", express.static("images"));
 
-const mongooseStringIP = "localhost";
+const mongooseStringIP = "164.90.194.91"; //"127.0.0.1"; //"localhost";
 
 mongoose.connect(`mongodb://${mongooseStringIP}:27017/Unstiff`);
 

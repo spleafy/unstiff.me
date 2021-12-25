@@ -3,6 +3,8 @@ FROM node:14-alpine
 # Create app directory
 WORKDIR /usr/src/app
 
+USER root
+
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
@@ -16,4 +18,4 @@ RUN npm install
 COPY . .
 
 EXPOSE 4040
-CMD [ "node", "server.js" ]
+CMD [ "npm", "run", "start" ]

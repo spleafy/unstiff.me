@@ -6,15 +6,15 @@ const ResponseMessage = require("./models/responseMessage");
 const multer = require("multer");
 const upload = multer();
 
-require("dotenv");
+require("dotenv").config();
 
 const app = express();
 
-const PORT = process.env.PORT ?? 4040;
+const PORT = process.env.PORT || 4040;
 
-mongoose.connect("mongodb://localhost:27017/Unstiff");
-
-const db = mongoose.connection;
+mongoose.connect("mongodb://164.90.194.91:27017/Unstiff").catch(error => {
+	console.warn('Mongoose Connect Error', error);
+});
 
 // Get All Posts
 
@@ -40,6 +40,10 @@ app.get("/post/:postId", async (req, res) => {
   }
 
   res.json(new ResponseMessage(200, { post: post[0] }));
+});
+
+app.get("/", async (req, res) => {
+	res.json({status: "OK"});
 });
 
 // Setup Listen Port
