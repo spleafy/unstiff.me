@@ -1,0 +1,90 @@
+.ue-navbar {
+  height: 130px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: var(--ue-main-color);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 55px 60px;
+}
+
+.ue-navbar .ue-navbar__logo {
+  cursor: pointer;
+}
+
+.ue-navbar .ue-navbar__links span {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 15px;
+  margin: 0 30px;
+  cursor: pointer;
+  color: var(--ue-secondary-color);
+}
+
+.ue-navbar .ue-navbar__links span.ue-active-link {
+  color: #fff;
+}
+
+.ue-navbar .ue-navbar__toggle {
+  height: 30px;
+  width: 40px;
+  display: none;
+  cursor: pointer;
+}
+
+.ue-navbar .ue-navbar__toggle div {
+  height: 5px;
+  width: 100%;
+  background: var(--ue-secondary-color);
+}
+
+@media only screen and (max-width: 980px) {
+  .ue-navbar .ue-navbar__links {
+    display: none;
+  }
+  .ue-navbar .ue-navbar__toggle {
+    width: 35px;
+    height: 25px;
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .ue-navbar {
+    height: 65px;
+    padding: 20px;
+  }
+  .ue-navbar .ue-navbar__logo {
+    width: 60%;
+  }
+  .ue-navbar .ue-navbar__links {
+    display: none;
+  }
+  .ue-navbar .ue-navbar__toggle {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+/*# sourceMappingURL=Navbar.css.map */

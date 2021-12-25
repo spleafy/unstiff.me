@@ -1,0 +1,198 @@
+.ue-admin-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.ue-admin-page form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+
+.ue-admin-page form div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 20px 0;
+}
+
+.ue-admin-page form div div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-width: 600px;
+  width: 100%;
+  margin: unset;
+}
+
+.ue-admin-page form div div div {
+  display: unset;
+  -webkit-box-orient: unset;
+  -webkit-box-direction: unset;
+      -ms-flex-direction: unset;
+          flex-direction: unset;
+  max-width: unset;
+  width: unset;
+}
+
+.ue-admin-page form div div h1 {
+  margin-bottom: 0;
+  margin-top: 40px;
+}
+
+.ue-admin-page form div div label {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.ue-admin-page form div div input,
+.ue-admin-page form div div textarea {
+  padding: 10px 15px;
+}
+
+.ue-admin-page form div div textarea {
+  height: 100px;
+}
+
+.ue-admin-page form div div .select-file-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+}
+
+.ue-admin-page form div div .select-file-box .input-file-label {
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  font-weight: 400;
+  background: #e3e3e3;
+}
+
+.ue-admin-page form div div input[type="file"] {
+  display: none;
+}
+
+.ue-admin-page form div div textarea {
+  resize: none;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.ue-admin-page form div .ue-post-box {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  max-width: unset;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.ue-admin-page form div .ue-post-box .ue-person-post {
+  max-width: 310px;
+  -ms-flex-item-align: unset;
+      -ms-grid-row-align: unset;
+      align-self: unset;
+}
+
+.ue-admin-page form button {
+  margin-top: 30px;
+  padding: 15px 10px;
+  background: var(--ue-main-color);
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  max-width: 600px;
+}
+
+.ue-admin-page .ue-admin-page__posts {
+  padding-top: 200px;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.ue-admin-page .ue-admin-page__posts .ue-person-post {
+  -ms-flex-item-align: unset;
+      -ms-grid-row-align: unset;
+      align-self: unset;
+  max-width: 310px;
+  word-wrap: break-word;
+}
+
+.ue-admin-page .ue-admin-page__posts .ue-person-post h1,
+.ue-admin-page .ue-admin-page__posts .ue-person-post p,
+.ue-admin-page .ue-admin-page__posts .ue-person-post .ue-person-post__description {
+  max-width: 290px;
+}
+
+.interview-required-field {
+  border-color: #000;
+}
+
+.recipe-required-field {
+  border-color: #6abbf5;
+}
+
+.movement-required-field {
+  border-color: #fd7373;
+}
+
+.sutra-required-field {
+  border-color: #fada3c;
+}
+
+@media only screen and (max-width: 980px) {
+  form {
+    max-width: unset !important;
+  }
+  form button {
+    max-width: unset !important;
+  }
+  form > div {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  form > div div {
+    max-width: unset !important;
+  }
+  form .ue-post-box {
+    margin-top: 50px;
+    margin-bottom: 75px;
+  }
+}
+/*# sourceMappingURL=CreateEditForm.css.map */

@@ -1,0 +1,50 @@
+.ue-settings-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 40px 60px;
+  gap: 60px;
+}
+
+.ue-settings-page form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-width: 600px;
+}
+
+.ue-settings-page form h1 {
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+
+.ue-settings-page form label {
+  margin-bottom: 10px;
+}
+
+.ue-settings-page form input {
+  padding: 10px 15px;
+}
+
+.ue-settings-page form .ue-admin-error {
+  margin-bottom: 20px;
+  margin-top: 10px;
+  color: red;
+}
+
+.ue-settings-page form button {
+  padding: 10px 15px;
+  background: var(--ue-main-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+/*# sourceMappingURL=SettingsPage.css.map */

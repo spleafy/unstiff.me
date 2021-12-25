@@ -7,11 +7,14 @@ import * as yup from "yup";
 import Loader from "../Loader/Loader";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import "./SettingsPage.scss";
+import ErrorBox from "../ErrorBox/ErrorBox";
 
 const SettingsPage = () => {
   const [loading, setLoading] = useState(true);
 
   const [loggedIn, setLoggedIn] = useState(false);
+
+  const [errors, setErrors] = useState([""]);
 
   const navigate = useNavigate();
 
@@ -63,6 +66,11 @@ const SettingsPage = () => {
         <>
           <Navbar />
           <div className="ue-settings-page">
+            <div className="ue-errors" style={{ top: "10%" }}>
+              {errors.map((error, index) =>
+                error.length > 0 ? <ErrorBox key={index} message={error} /> : ""
+              )}
+            </div>
             <Formik
               initialValues={{
                 username: "",
@@ -85,8 +93,12 @@ const SettingsPage = () => {
 
                 const data = await response.json();
 
+                console.log(data);
+
                 if (data.status == 401) {
+                  setErrors([...errors, "Wrong Password!"]);
                 } else {
+                  navigate("/admin");
                 }
               }}
             >
@@ -120,7 +132,7 @@ const SettingsPage = () => {
                 const token = "Bearer " + localStorage.getItem("token");
 
                 const response = await fetch(
-                  `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_ADBE_PORT}`,
+                  `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_ADBE_PORT}/user/password`,
                   {
                     method: "PUT",
                     body: createFormData(values),
@@ -133,7 +145,9 @@ const SettingsPage = () => {
                 const data = await response.json();
 
                 if (data.status == 401) {
+                  setErrors([...errors, "Wrong Password!"]);
                 } else {
+                  navigate("/admin");
                 }
               }}
             >

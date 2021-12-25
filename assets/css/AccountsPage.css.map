@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,cAAc,CAAC;EACb,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,MAAM;EACvB,WAAW,EAAE,MAAM;EACnB,MAAM,EAAE,KAAK;CACd",
+    "sources": [
+        "../../adminfe/src/components/AccountsPage/AccountsPage.scss"
+    ],
+    "names": [],
+    "file": "AccountsPage.css"
+}

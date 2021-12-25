@@ -11,14 +11,14 @@ const storage = multer.diskStorage({
   },
   filename: function (req, file, cb) {
     const filename = Date.now() + "-post-image-" + file.originalname;
-    console.log('writing to: '+filename);
+    console.log("writing to: " + filename);
     cb(null, filename);
   },
 });
 
 const upload = multer({ storage });
 
-require("dotenv");
+require("dotenv").config();
 
 const PORT = process.env.ADMIN_PORT ?? 9090;
 
@@ -42,7 +42,9 @@ app.use(
 
 app.use("/images", express.static("images"));
 
-mongoose.connect("mongodb://164.90.194.91:27017/Unstiff");
+const mongooseStringIP = "localhost";
+
+mongoose.connect(`mongodb://${mongooseStringIP}:27017/Unstiff`);
 
 const userLogin = require("./api/userLogin");
 
