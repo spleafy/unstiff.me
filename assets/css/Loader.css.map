@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,UAAU,CAAC;EACT,QAAQ,EAAE,QAAQ;EAClB,GAAG,EAAE,GAAG;EACR,IAAI,EAAE,GAAG;EACT,SAAS,EAAE,qBAAqB,CAAC,QAAQ;EACzC,SAAS,EAAE,sBAAsB;CAClC;;AAED,UAAU,CAAV,UAAU;EACR,IAAI;IACF,SAAS,EAAE,qBAAqB,CAAC,QAAQ;;EAG3C,GAAG;IACD,SAAS,EAAE,qBAAqB,CAAC,WAAW;;EAG9C,GAAG;IACD,SAAS,EAAE,qBAAqB,CAAC,WAAW;;EAG9C,GAAG;IACD,SAAS,EAAE,qBAAqB,CAAC,QAAQ",
-    "sources": [
-        "../../adminfe/src/components/Loader/Loader.scss"
-    ],
-    "names": [],
-    "file": "Loader.css"
-}
