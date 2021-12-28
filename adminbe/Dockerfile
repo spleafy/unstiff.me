@@ -5,11 +5,11 @@ WORKDIR /usr/src/app
 
 ENV ADMIN_PORT "9090"
 ENV ADMIN_FE_PORT "3000"
-ENV API_URL "http://164.90.194.91"
+ENV API_URL "http://unstiff.me"
 ENV TOKEN_SECRET "supersecret"
 ENV SESSION_SECRET "supersecret"
 
-ENV MONGODB_HOST=localhost
+ENV MONGODB_HOST=mongodb_container
 ENV MONGODB_PORT=27017
 ENV MONGODB_USERNAME=root
 ENV MONGODB_PASSWORD=rootpassword

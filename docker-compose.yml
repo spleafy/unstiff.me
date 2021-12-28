@@ -13,15 +13,22 @@ services:
     volumes:
       - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
       - mongodb_data:/data/db
+    command: [--auth]
 
-  # # Admin Backend
-  # adminbe:
-  #   depends_on:
-  #     - mongodb_container
-  #   restart: always
-  #   build: adminbe/.
-  #   ports: 
-  #     - 9090:9090
+  # Admin Backend
+  adminbe:
+    depends_on:
+      - mongodb_container
+    restart: always
+    build: adminbe/.
+    environment:
+      MONGODB_HOST: mongodb_container
+      MONGODB_PORT: ${MONGODB_PORT}
+      MONGODB_DATABASE: ${MONGODB_DATABASE}
+      MONGODB_USERNAME: ${MONGODB_USERNAME}
+      MONGODB_PASSWORD: ${MONGODB_PASSWORD}
+    ports: 
+      - 9090:9090
 
   # Admin Frontend
   adminfe:

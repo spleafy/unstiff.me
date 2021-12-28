@@ -48,7 +48,9 @@ const mongooseStringUsername = process.env.MONGODB_USERNAME;
 const mongooseStringPassword = process.env.MONGODB_PASSWORD;
 const mongooseStringDatabase = process.env.MONGODB_DATABASE;
 
-mongoose.connect(`mongodb://${mongooseStringUsername}:${mongooseStringPassword}@${mongooseStringIP}:${mongooseStringPort}/${mongooseStringDatabase}`);
+const mongoDBConnectionString = `mongodb://${mongooseStringUsername}:${mongooseStringPassword}@${mongooseStringIP}:${mongooseStringPort}/${mongooseStringDatabase}`;
+console.log('Connecting to MongoDB with: '+mongoDBConnectionString);
+mongoose.connect(mongoDBConnectionString);
 
 const userLogin = require("./api/userLogin");
 

@@ -1,3 +1,18 @@
+db.auth('root','rootpassword');
+
+db.getSiblingDB('Unstiff');
+
+db.createUser({
+    user: 'root',
+    pwd: 'rootpassword',
+    roles: [
+        {
+            role: 'readWrite',
+            db: 'Unstiff'
+        },
+    ],
+});
+
 db.createCollection('posts', { capped: false });
 db.createCollection('admins', { capped: false });
 db.admins.insert([

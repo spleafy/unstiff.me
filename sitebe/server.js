@@ -12,9 +12,18 @@ const app = express();
 
 const PORT = process.env.PORT || 4040;
 
-mongoose.connect("mongodb://164.90.194.91:27017/Unstiff").catch(error => {
+const mongooseStringIP = process.env.MONGODB_HOST; //"164.90.194.91"; //"127.0.0.1"; //"localhost";
+const mongooseStringPort = process.env.MONGODB_PORT;
+const mongooseStringUsername = process.env.MONGODB_USERNAME;
+const mongooseStringPassword = process.env.MONGODB_PASSWORD;
+const mongooseStringDatabase = process.env.MONGODB_DATABASE;
+
+const mongoDBConnectionString = `mongodb://${mongooseStringUsername}:${mongooseStringPassword}@${mongooseStringIP}:${mongooseStringPort}/${mongooseStringDatabase}`;
+console.log('Connecting to MongoDB with: '+mongoDBConnectionString);
+mongoose.connect(mongoDBConnectionString).catch(error => {
 	console.warn('Mongoose Connect Error', error);
 });
+
 
 // Get All Posts
 

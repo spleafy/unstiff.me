@@ -1,7 +1,7 @@
 const Admin = require("../models/admin");
 const ResponseMessage = require("../models/responseMessage");
 const jwt = require("jsonwebtoken");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 
 module.exports = async (req, res) => {
   const admin = await Admin.findOne({ username: req.body.username });

@@ -3,7 +3,7 @@ ENV NODE_ENV development
 # Add a work directory
 WORKDIR /app
 
-ENV REACT_APP_API_URL "http://164.90.194.91"
+ENV REACT_APP_API_URL "http://unstiff.me"
 ENV REACT_APP_API_ADBE_PORT "9090"
 
 # Cache and Install dependencies
