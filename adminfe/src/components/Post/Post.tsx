@@ -63,7 +63,10 @@ const Post = (props: PostProps) => {
         </div>
       </div>
       {props.description ? (
-        <div className="ue-person-post__description">{props.description}</div>
+        <div
+          className="ue-person-post__description"
+          dangerouslySetInnerHTML={{ __html: props.description }}
+        ></div>
       ) : (
         <></>
       )}
