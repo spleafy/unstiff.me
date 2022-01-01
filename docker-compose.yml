@@ -1,0 +1,64 @@
+version: '3.7'
+services:
+  # Database MongoDB
+  mongodb_container:
+    image: mongo:latest
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGODB_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGODB_PASSWORD}
+      MONGO_INITDB_DATABASE: ${MONGODB_DATABASE}
+    ports:
+      - ${MONGODB_PORT}:${MONGODB_PORT}
+    volumes:
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+      - mongodb_data:/data/db
+    command: [--auth]
+
+  # Admin Backend
+  adminbe:
+    depends_on:
+      - mongodb_container
+    restart: always
+    build: adminbe/.
+    environment:
+      MONGODB_HOST: mongodb_container
+      MONGODB_PORT: ${MONGODB_PORT}
+      MONGODB_DATABASE: ${MONGODB_DATABASE}
+      MONGODB_USERNAME: ${MONGODB_USERNAME}
+      MONGODB_PASSWORD: ${MONGODB_PASSWORD}
+    ports: 
+      - 9090:9090
+
+  # Admin Frontend
+  adminfe:
+    depends_on:
+      - mongodb_container
+    restart: always
+    build: adminfe/.
+    environment:
+      REACT_APP_API_URL: ${ADMINFE_REACT_APP_API_URL}
+      REACT_APP_API_ADBE_PORT: ${ADMINFE_REACT_APP_API_ADBE_PORT}
+    ports: 
+      - ${ADMINFE_PORT}:80
+
+  # Site Backend
+  sitebe:
+    depends_on:
+      - mongodb_container
+    restart: always
+    build: sitebe/.
+    ports: 
+      - ${SITEBE_PORT}:${SITEBE_PORT}
+
+ # Site Frontend
+  sitefe:
+    depends_on:
+      - mongodb_container
+    restart: always
+    build: sitefe/.
+    ports: 
+      - 80:${SITEFE_PORT}
+
+volumes:
+  mongodb_data:

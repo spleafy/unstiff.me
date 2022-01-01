@@ -20,7 +20,7 @@ const upload = multer({ storage });
 
 require("dotenv").config();
 
-const PORT = process.env.ADMIN_PORT ?? 9090;
+const PORT = process.env.ADMIN_PORT || 9090;
 
 const app = express();
 
@@ -42,9 +42,15 @@ app.use(
 
 app.use("/images", express.static("images"));
 
-const mongooseStringIP = "localhost";
+const mongooseStringIP = process.env.MONGODB_HOST; //"164.90.194.91"; //"127.0.0.1"; //"localhost";
+const mongooseStringPort = process.env.MONGODB_PORT;
+const mongooseStringUsername = process.env.MONGODB_USERNAME;
+const mongooseStringPassword = process.env.MONGODB_PASSWORD;
+const mongooseStringDatabase = process.env.MONGODB_DATABASE;
 
-mongoose.connect(`mongodb://${mongooseStringIP}:27017/Unstiff`);
+const mongoDBConnectionString = `mongodb://${mongooseStringUsername}:${mongooseStringPassword}@${mongooseStringIP}:${mongooseStringPort}/${mongooseStringDatabase}`;
+console.log('Connecting to MongoDB with: '+mongoDBConnectionString);
+mongoose.connect(mongoDBConnectionString);
 
 const userLogin = require("./api/userLogin");
 
