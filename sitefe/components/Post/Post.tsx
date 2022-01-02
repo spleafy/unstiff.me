@@ -89,10 +89,11 @@ const Post = (props: PostProps) => {
             {props.subtitle ? <p>{props.subtitle}</p> : <></>}
           </div>
         </div>
-        {props.description ? (
-          <div className="ue-person-post__description">
-            {props.type == "interview" ? props.description : ""}
-          </div>
+        {props.description && props.type == "interview" ? (
+          <div
+            className="ue-person-post__description"
+            dangerouslySetInnerHTML={{ __html: props.description }}
+          ></div>
         ) : (
           <></>
         )}

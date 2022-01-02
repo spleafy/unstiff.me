@@ -88,9 +88,10 @@ const Movement = ({ post }: any) => {
                   </div>
                 </div>
               </div>
-              <div className="ue-main-header__description">
-                {post.movement.description}
-              </div>
+              <div
+                className="ue-main-header__description"
+                dangerouslySetInnerHTML={{ __html: post.movement.description }}
+              ></div>
             </div>
           </div>
           <div className="ue-main-cards">

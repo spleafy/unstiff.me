@@ -89,9 +89,10 @@ const Sutra = ({ post }: any) => {
                   </div>
                 </div>
               </div>
-              <div className="ue-main-header__description">
-                {post.sutra.description}
-              </div>
+              <div
+                className="ue-main-header__description"
+                dangerouslySetInnerHTML={{ __html: post.sutra.description }}
+              ></div>
             </div>
           </div>
           <div className="ue-main-cards">

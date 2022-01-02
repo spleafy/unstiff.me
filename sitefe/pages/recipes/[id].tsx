@@ -89,9 +89,10 @@ const Recipe = ({ post }: any) => {
                   </div>
                 </div>
               </div>
-              <div className="ue-main-header__description">
-                {post.recipe.description}
-              </div>
+              <div
+                className="ue-main-header__description"
+                dangerouslySetInnerHTML={{ __html: post.recipe.description }}
+              ></div>
             </div>
           </div>
           <div className="ue-main-cards">

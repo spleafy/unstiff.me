@@ -88,9 +88,10 @@ const Interview = ({ post }: any) => {
                   </div>
                 </div>
               </div>
-              <div className="ue-main-header__description">
-                {post.interview.description}
-              </div>
+              <div
+                className="ue-main-header__description"
+                dangerouslySetInnerHTML={{ __html: post.interview.description }}
+              ></div>
             </div>
           </div>
           <div className="ue-main-cards">
