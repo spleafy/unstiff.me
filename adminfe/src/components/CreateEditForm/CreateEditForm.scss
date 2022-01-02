@@ -1,46 +1,30 @@
 .ue-admin-page {
   display: flex;
 
-  .tox-notifications-container {
-    display: none !important;
-  }
-
-  .form-wrapper {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-  }
-  .form-descriptions {
-    // max-width: 600px;
-    width: 100%;
-
-    .tox {
-      margin-top: 10px;
-      margin-bottom: 60px;
-    }
-  }
-
   form {
     display: flex;
     flex-direction: column;
     width: 100%;
 
-    iframe {
-      display: block !important;
+    .quill {
+      display: flex;
+      flex-direction: column;
+      max-width: 600px;
+      // width: 100%;
     }
 
-    div {
+    > div {
       display: flex;
       margin: 20px 0;
 
-      div {
+      > div {
         display: flex;
         flex-direction: column;
         max-width: 600px;
         width: 100%;
         margin: unset;
 
-        div {
+        > div {
           display: unset;
           flex-direction: unset;
           max-width: unset;

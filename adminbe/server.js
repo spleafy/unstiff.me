@@ -49,8 +49,9 @@ const mongooseStringPassword = process.env.MONGODB_PASSWORD;
 const mongooseStringDatabase = process.env.MONGODB_DATABASE;
 
 const mongoDBConnectionString = `mongodb://${mongooseStringUsername}:${mongooseStringPassword}@${mongooseStringIP}:${mongooseStringPort}/${mongooseStringDatabase}`;
-console.log('Connecting to MongoDB with: '+mongoDBConnectionString);
+console.log("Connecting to MongoDB with: " + mongoDBConnectionString);
 mongoose.connect(mongoDBConnectionString);
+// mongoose.connect("mongodb://localhost:27017/Unstiff");
 
 const userLogin = require("./api/userLogin");
 
