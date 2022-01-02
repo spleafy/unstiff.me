@@ -107,6 +107,14 @@ const CreateEditForm = ({ props, method, url }: any) => {
             }}
           />
 
+          <input
+            type="text"
+            value={props.values["interview-description"]}
+            name="interview-description"
+            onChange={() => {}}
+            style={{ display: "none" }}
+          />
+
           {/* <Field
               name="interview-description"
               id="interview-description"
@@ -194,6 +202,14 @@ const CreateEditForm = ({ props, method, url }: any) => {
             }}
           />
 
+          <input
+            type="text"
+            value={props.values["recipe-description"]}
+            name="recipe-description"
+            onChange={() => {}}
+            style={{ display: "none" }}
+          />
+
           {/* <Field
               name="recipe-description"
               type="text"
@@ -261,6 +277,14 @@ const CreateEditForm = ({ props, method, url }: any) => {
             }}
           />
 
+          <input
+            type="text"
+            value={props.values["movement-description"]}
+            name="movement-description"
+            onChange={() => {}}
+            style={{ display: "none" }}
+          />
+
           <label htmlFor="movement-audio-url">Audio URL:</label>
           <Field
             name="movement-audio-url"
@@ -321,6 +345,14 @@ const CreateEditForm = ({ props, method, url }: any) => {
                 target: { name: "sutra-description", value: e },
               });
             }}
+          />
+
+          <input
+            type="text"
+            value={props.values["sutra-description"]}
+            name="sutra-description"
+            onChange={() => {}}
+            style={{ display: "none" }}
           />
 
           <div className="select-file-box">
