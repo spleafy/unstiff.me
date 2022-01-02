@@ -99,6 +99,7 @@ const CreateEditForm = ({ props, method, url }: any) => {
 
           <ReactQuill
             value={props.values["interview-description"]}
+            className="interview-required-field"
             onChange={(e) => {
               props.handleChange({
                 target: { name: "interview-description", value: e },
@@ -184,6 +185,7 @@ const CreateEditForm = ({ props, method, url }: any) => {
           <label htmlFor="recipe-description">Interview Description:</label>
 
           <ReactQuill
+            className="recipe-required-field"
             value={props.values["recipe-description"]}
             onChange={(e) => {
               props.handleChange({
@@ -250,6 +252,7 @@ const CreateEditForm = ({ props, method, url }: any) => {
           <label htmlFor="movement-description">Interview Description:</label>
 
           <ReactQuill
+            className="movement-required-field"
             value={props.values["movement-description"]}
             onChange={(e) => {
               props.handleChange({
@@ -311,6 +314,7 @@ const CreateEditForm = ({ props, method, url }: any) => {
           <label htmlFor="sutra-description">Sutra Description:</label>
 
           <ReactQuill
+            className="sutra-required-field"
             value={props.values["sutra-description"]}
             onChange={(e) => {
               props.handleChange({

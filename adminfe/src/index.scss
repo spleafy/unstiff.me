@@ -129,3 +129,12 @@ button {
     }
   }
 }
+
+.quill {
+  border-radius: 5px;
+  border: 2px solid #000;
+  overflow: hidden;
+  button {
+    margin-top: 0px;
+  }
+}
