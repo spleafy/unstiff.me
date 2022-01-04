@@ -21,45 +21,6 @@ const CreateEditForm = ({ props, method, url }: any) => {
     return URL.createObjectURL(file);
   };
 
-  const [interviewPersonImage, setInterviewPersonImage] = useState(
-    props.values["interview-person-image"]
-      ? `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_ADBE_PORT}/images/` +
-          props.values["interview-person-image"]
-      : ""
-  );
-
-  const [interviewHeadingImage, setInterviewHeadingImage] = useState(
-    props.values["interview-heading-image"]
-      ? `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_ADBE_PORT}/images/` +
-          props.values["interview-heading-image"]
-      : ""
-  );
-
-  const [recipeHeadingImage, setRecipeHeadingImage] = useState(
-    props.values["recipe-heading-image"]
-      ? `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_ADBE_PORT}/images/` +
-          props.values["recipe-heading-image"]
-      : ""
-  );
-
-  const [movementHeadingImage, setMovementHeadingImage] = useState(
-    props.values["movement-heading-image"]
-      ? `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_ADBE_PORT}/images/` +
-          props.values["movement-heading-image"]
-      : ""
-  );
-
-  const [sutraHeadingImage, setSutraHeadingImage] = useState(
-    props.values["sutra-heading-image"]
-      ? `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_ADBE_PORT}/images/` +
-          props.values["sutra-heading-image"]
-      : ""
-  );
-
-  //
-  const editorRef: any = useRef(null);
-  //
-
   return (
     <form action={url} method={method} encType="multipart/form-data">
       <div>
@@ -145,10 +106,23 @@ const CreateEditForm = ({ props, method, url }: any) => {
                 id="interview-person-image"
                 onChange={(e) => {
                   const url = fileURL(e.target);
-                  setInterviewPersonImage(url);
+                  props.handleChange({
+                    target: { name: "interview-person-image", value: url },
+                  });
                 }}
               />
             </label>
+
+            <button
+              type="button"
+              onClick={() => {
+                props.handleChange({
+                  target: { name: "interview-person-image", value: "" },
+                });
+              }}
+            >
+              Remove Person Image
+            </button>
 
             <label
               htmlFor="interview-header-image"
@@ -161,10 +135,22 @@ const CreateEditForm = ({ props, method, url }: any) => {
                 id="interview-header-image"
                 onChange={(e) => {
                   const url = fileURL(e.target);
-                  setInterviewHeadingImage(url);
+                  props.handleChange({
+                    target: { name: "interview-heading-image", value: url },
+                  });
                 }}
               />
             </label>
+            <button
+              type="button"
+              onClick={() => {
+                props.handleChange({
+                  target: { name: "interview-heading-image", value: "" },
+                });
+              }}
+            >
+              Remove Header Image
+            </button>
           </div>
         </div>
         <div className="ue-post-box">
@@ -174,8 +160,8 @@ const CreateEditForm = ({ props, method, url }: any) => {
             description={props.values["interview-description"]}
             type={props.values["interview-type"]}
             audioURL={props.values["interview-audio-url"]}
-            imgSource={interviewPersonImage}
-            headingImgSource={interviewHeadingImage}
+            imgSource={props.values["interview-person-image"]}
+            headingImgSource={props.values["interview-heading-image"]}
           />
         </div>
       </div>
@@ -238,9 +224,21 @@ const CreateEditForm = ({ props, method, url }: any) => {
               id="recipe-header-image"
               onChange={(e) => {
                 const url = fileURL(e.target);
-                setRecipeHeadingImage(url);
+                props.handleChange({
+                  target: { name: "recipe-heading-image", value: url },
+                });
               }}
             />
+            <button
+              type="button"
+              onClick={() => {
+                props.handleChange({
+                  target: { name: "recipe-heading-image", value: "" },
+                });
+              }}
+            >
+              Remove Header Image
+            </button>
             <div />
           </div>
         </div>
@@ -250,7 +248,7 @@ const CreateEditForm = ({ props, method, url }: any) => {
             description={""}
             type={props.values["recipe-type"]}
             audioURL={props.values["recipe-audio-url"]}
-            headingImgSource={recipeHeadingImage}
+            headingImgSource={props.values["recipe-heading-image"]}
           />
         </div>
       </div>
@@ -302,9 +300,21 @@ const CreateEditForm = ({ props, method, url }: any) => {
               id="movement-header-image"
               onChange={(e) => {
                 const url = fileURL(e.target);
-                setMovementHeadingImage(url);
+                props.handleChange({
+                  target: { name: "movement-heading-image", value: url },
+                });
               }}
             />
+            <button
+              type="button"
+              onClick={() => {
+                props.handleChange({
+                  target: { name: "movement-heading-image", value: "" },
+                });
+              }}
+            >
+              Remove Header Image
+            </button>
           </div>
         </div>
         <div className="ue-post-box">
@@ -313,7 +323,7 @@ const CreateEditForm = ({ props, method, url }: any) => {
             description={""}
             type={props.values["movement-type"]}
             audioURL={props.values["movement-audio-url"]}
-            headingImgSource={movementHeadingImage}
+            headingImgSource={props.values["movement-heading-image"]}
           />
         </div>
       </div>
@@ -365,9 +375,21 @@ const CreateEditForm = ({ props, method, url }: any) => {
               id="sutra-header-image"
               onChange={(e) => {
                 const url = fileURL(e.target);
-                setSutraHeadingImage(url);
+                props.handleChange({
+                  target: { name: "sutra-heading-image", value: url },
+                });
               }}
             />
+            <button
+              type="button"
+              onClick={() => {
+                props.handleChange({
+                  target: { name: "sutra-heading-image", value: "" },
+                });
+              }}
+            >
+              Remove Header Image
+            </button>
           </div>
         </div>
         <div className="ue-post-box">
@@ -376,7 +398,7 @@ const CreateEditForm = ({ props, method, url }: any) => {
             description={""}
             type={props.values["sutra-type"]}
             audioURL={props.values["sutra-audio-url"]}
-            headingImgSource={sutraHeadingImage}
+            headingImgSource={props.values["sutra-heading-image"]}
           />
         </div>
       </div>

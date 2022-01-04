@@ -89,7 +89,7 @@ const Posts = ({ posts }: any) => {
             )}
           </div>
         ) : (
-          <></>
+          <div key={index} style={{ display: "none" }}></div>
         )
       )}
     </>

@@ -84,7 +84,9 @@ const Home: NextPage = ({ posts }: any) => {
         {posts.length > 0 ? (
           <Posts posts={posts} />
         ) : (
-          <h1>Unfortunately, there are no posts regarding this subject!</h1>
+          <h1 style={{ width: "100%", textAlign: "center" }}>
+            Unfortunately, there are no posts regarding this subject!
+          </h1>
         )}
       </div>
     </>

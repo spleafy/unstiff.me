@@ -51,6 +51,12 @@ const Movement = ({ post }: any) => {
     }
   };
 
+  const isValidURL = () => {
+    const expression =
+      /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+    return expression.test(post.movement.audioURL);
+  };
+
   return (
     <>
       {post.movement ? (
@@ -84,7 +90,11 @@ const Movement = ({ post }: any) => {
                       toggleAudio();
                     }}
                   >
-                    <PlayButton width={40} height={40} playing={false} />
+                    {isValidURL() ? (
+                      <PlayButton width={40} height={40} playing={playing} />
+                    ) : (
+                      <></>
+                    )}
                   </div>
                 </div>
               </div>
@@ -94,12 +104,15 @@ const Movement = ({ post }: any) => {
               ></div>
             </div>
           </div>
-          <div className="ue-main-cards">
+          <div className="ue-main-cards" style={{ justifyContent: "center" }}>
             <Posts posts={otherPosts} />
           </div>
         </>
       ) : (
-        <div className="ue-main-cards">
+        <div
+          className="ue-main-cards"
+          style={{ justifyContent: "center!important" }}
+        >
           <h1 style={{ width: "100%", textAlign: "center" }}>
             This post does not exist!{" "}
             <Link href="/">

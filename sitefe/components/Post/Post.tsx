@@ -20,8 +20,6 @@ export const definePostLabel = (type: any) => {
 };
 
 const Post = (props: PostProps) => {
-  const [playing, setPlaying] = useState(false);
-
   const imagePrefix = `http://${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_ADBE_PORT}/images/`;
 
   const definePostColor = (type: any) => {
@@ -47,6 +45,12 @@ const Post = (props: PostProps) => {
     }
   };
 
+  const isValidURL = (url: any) => {
+    const expression =
+      /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+    return expression.test(url);
+  };
+
   return (
     <Link href={"/" + props.type + "s/" + props._id}>
       <div
@@ -54,9 +58,6 @@ const Post = (props: PostProps) => {
         style={{
           backgroundColor: definePostColor(props.type),
           border: definePostBorder(props.type),
-        }}
-        onBlur={() => {
-          setPlaying(false);
         }}
       >
         {props.headingImgSource ? (
@@ -102,7 +103,7 @@ const Post = (props: PostProps) => {
           <div>
             <ReadMoreButton />
           </div>
-          <PlayButton playing={false} />
+          {isValidURL(props.audioURL) ? <PlayButton playing={false} /> : <></>}
         </div>
       </div>
     </Link>

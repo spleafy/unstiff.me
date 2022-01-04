@@ -59,8 +59,8 @@ a {
     background: #fff;
     padding-left: 20px;
     padding-bottom: 20px;
-    align-self: start;
-    justify-self: start;
+    // align-self: start;
+    // justify-self: start;
     width: 100%;
     cursor: pointer;
 
@@ -116,6 +116,10 @@ a {
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-grow: 1;
+        max-width: 95px;
+        min-width: 95px;
+        aspect-ratio: 1/1;
 
         img {
           height: 100%;
@@ -144,10 +148,11 @@ a {
       padding-right: 20px;
       overflow: hidden;
       text-overflow: ellipsis;
-      display: -webkit-box;
-      -webkit-line-clamp: 5; /* number of lines to show */
-      line-clamp: 5;
-      -webkit-box-orient: vertical;
+      height: 200px;
+      // display: -webkit-box;
+      // -webkit-line-clamp: 5; /* number of lines to show */
+      // line-clamp: 5;
+      // -webkit-box-orient: vertical;
     }
 
     .ue-person-post__actions {
@@ -341,6 +346,17 @@ a {
     top: 65px;
     height: 100px;
   }
+
+  // .ue-person-post__profile-text p,
+  // h1 {
+  //   font-size: 18px !important;
+  // }
+
+  // .ue-person-post__profile-image {
+  //   width: 80px !important;
+  //   height: 80px !important;
+  //   max-width: 80px !important;
+  // }
 
   .ue-main-header,
   .ue-main-video {

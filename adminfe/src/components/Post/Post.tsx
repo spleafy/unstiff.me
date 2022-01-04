@@ -34,6 +34,10 @@ const Post = (props: PostProps) => {
     }
   };
 
+  const imgPrefix = `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_ADBE_PORT}/images/`;
+
+  console.log(props.headingImgSource);
+
   return (
     <div
       className="ue-person-post"
@@ -41,7 +45,14 @@ const Post = (props: PostProps) => {
     >
       {props.headingImgSource ? (
         <div className="ue-person-post__heading-image">
-          <img src={props.headingImgSource} alt="" />
+          <img
+            src={
+              props.headingImgSource.startsWith("blob")
+                ? props.headingImgSource
+                : imgPrefix + props.headingImgSource
+            }
+            alt=""
+          />
         </div>
       ) : (
         <></>
@@ -51,7 +62,14 @@ const Post = (props: PostProps) => {
       <div className="ue-person-post__profile">
         {props.imgSource ? (
           <div className="ue-person-post__profile-image">
-            <img src={props.imgSource} alt="" />
+            <img
+              src={
+                props.imgSource.startsWith("blob")
+                  ? props.imgSource
+                  : imgPrefix + props.imgSource
+              }
+              alt=""
+            />
           </div>
         ) : (
           <></>

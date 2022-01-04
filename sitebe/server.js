@@ -19,11 +19,11 @@ const mongooseStringPassword = process.env.MONGODB_PASSWORD;
 const mongooseStringDatabase = process.env.MONGODB_DATABASE;
 
 const mongoDBConnectionString = `mongodb://${mongooseStringUsername}:${mongooseStringPassword}@${mongooseStringIP}:${mongooseStringPort}/${mongooseStringDatabase}`;
-console.log('Connecting to MongoDB with: '+mongoDBConnectionString);
-mongoose.connect(mongoDBConnectionString).catch(error => {
-	console.warn('Mongoose Connect Error', error);
+console.log("Connecting to MongoDB with: " + mongoDBConnectionString);
+mongoose.connect(mongoDBConnectionString).catch((error) => {
+  console.warn("Mongoose Connect Error", error);
 });
-
+// mongoose.connect("mongodb://localhost:27017/Unstiff");
 
 // Get All Posts
 
@@ -52,7 +52,7 @@ app.get("/post/:postId", async (req, res) => {
 });
 
 app.get("/", async (req, res) => {
-	res.json({status: "OK"});
+  res.json({ status: "OK" });
 });
 
 // Setup Listen Port

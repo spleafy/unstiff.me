@@ -53,14 +53,26 @@
         .select-file-box {
           display: flex;
           gap: 20px;
+          margin-top: 20px;
+          margin-bottom: 20px;
+          flex-wrap: wrap;
+          width: 80%;
 
-          .input-file-label {
+          .input-file-label,
+          button {
             padding: 10px 15px;
             border-radius: 5px;
             border: 2px solid rgba(0, 0, 0, 0.2);
             cursor: pointer;
             font-weight: 400;
             background: #e3e3e3;
+            margin: 0;
+          }
+
+          button {
+            background: #f08080;
+            font-family: inherit;
+            font-size: inherit;
           }
         }
 

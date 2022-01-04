@@ -6,7 +6,9 @@ module.exports = async (req, res) => {
 
   const imagePrefix = "";
 
-  const postdb = await Post.findOne({ _id: id });
+  // const postdb = await Post.findOne({ _id: id });
+
+  console.log(req.files["interview-person-image"]);
 
   const postToUpdate = {
     name: req.body["post-name"],
@@ -22,15 +24,15 @@ module.exports = async (req, res) => {
             imgSource:
               req.files && req.files["interview-person-image"]
                 ? imagePrefix + req.files["interview-person-image"][0].filename
-                : postdb.interview
-                ? postdb.interview.imgSource
-                : "",
+                : // : postdb.interview
+                  // ? postdb.interview.imgSource
+                  "",
             headingImgSource:
               req.files && req.files["interview-header-image"]
                 ? imagePrefix + req.files["interview-header-image"][0].filename
-                : postdb.interview
-                ? postdb.interview.headingImgSource
-                : "",
+                : // : postdb.interview
+                  // ? postdb.interview.headingImgSource
+                  "",
             type: "interview",
           }
         : null,
@@ -43,9 +45,9 @@ module.exports = async (req, res) => {
             headingImgSource:
               req.files && req.files["recipe-header-image"]
                 ? imagePrefix + req.files["recipe-header-image"][0].filename
-                : postdb.recipe
-                ? postdb.recipe.headingImgSource
-                : "",
+                : // : postdb.recipe
+                  // ? postdb.recipe.headingImgSource
+                  "",
             type: "recipe",
           }
         : null,
@@ -58,9 +60,9 @@ module.exports = async (req, res) => {
             headingImgSource:
               req.files && req.files["movement-header-image"]
                 ? imagePrefix + req.files["movement-header-image"][0].filename
-                : postdb.movement
-                ? postdb.movement.headingImgSource
-                : "",
+                : // : postdb.movement
+                  // ? postdb.movement.headingImgSource
+                  "",
             type: "movement",
           }
         : null,
@@ -73,9 +75,9 @@ module.exports = async (req, res) => {
             headingImgSource:
               req.files && req.files["sutra-header-image"]
                 ? imagePrefix + req.files["sutra-header-image"][0].filename
-                : postdb.sutra
-                ? postdb.sutra.headingImgSource
-                : "",
+                : // : postdb.sutra
+                  // ? postdb.sutra.headingImgSource
+                  "",
             type: "sutra",
           }
         : null,
