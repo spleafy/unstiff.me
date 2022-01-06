@@ -1,10 +1,9 @@
 import React from "react";
 import Navbar from "../Navbar/Navbar";
-import { Formik, Field, Form, ErrorMessage } from "formik";
+import { Formik } from "formik";
 import * as yup from "yup";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Post from "../Post/Post";
 import CreateEditForm from "../CreateEditForm/CreateEditForm";
 import { checkUserState } from "../services/checkUserState";
 import Loader from "../Loader/Loader";

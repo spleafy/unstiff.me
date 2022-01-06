@@ -6,9 +6,7 @@ module.exports = async (req, res) => {
 
   const imagePrefix = "";
 
-  // const postdb = await Post.findOne({ _id: id });
-
-  console.log(req.files["interview-person-image"]);
+  const postdb = await Post.findOne({ _id: id });
 
   const postToUpdate = {
     name: req.body["post-name"],
@@ -22,17 +20,21 @@ module.exports = async (req, res) => {
             description: req.body["interview-description"],
             audioURL: req.body["interview-audio-url"],
             imgSource:
-              req.files && req.files["interview-person-image"]
+              req.body["interview-remove-person-image"] == "on"
+                ? ""
+                : req.files && req.files["interview-person-image"]
                 ? imagePrefix + req.files["interview-person-image"][0].filename
-                : // : postdb.interview
-                  // ? postdb.interview.imgSource
-                  "",
+                : postdb.interview
+                ? postdb.interview.imgSource
+                : "",
             headingImgSource:
-              req.files && req.files["interview-header-image"]
+              req.body["interview-remove-header-image"] == "on"
+                ? ""
+                : req.files && req.files["interview-header-image"]
                 ? imagePrefix + req.files["interview-header-image"][0].filename
-                : // : postdb.interview
-                  // ? postdb.interview.headingImgSource
-                  "",
+                : postdb.interview
+                ? postdb.interview.headingImgSource
+                : "",
             type: "interview",
           }
         : null,
@@ -42,12 +44,13 @@ module.exports = async (req, res) => {
             title: req.body["recipe-title"],
             description: req.body["recipe-description"],
             audioURL: req.body["recipe-audio-url"],
-            headingImgSource:
-              req.files && req.files["recipe-header-image"]
-                ? imagePrefix + req.files["recipe-header-image"][0].filename
-                : // : postdb.recipe
-                  // ? postdb.recipe.headingImgSource
-                  "",
+            headingImgSource: req.body["recipe-remove-header-image"]
+              ? ""
+              : req.files && req.files["recipe-header-image"]
+              ? imagePrefix + req.files["recipe-header-image"][0].filename
+              : postdb.recipe
+              ? postdb.recipe.headingImgSource
+              : "",
             type: "recipe",
           }
         : null,
@@ -58,11 +61,13 @@ module.exports = async (req, res) => {
             description: req.body["movement-description"],
             audioURL: req.body["movement-audio-url"],
             headingImgSource:
-              req.files && req.files["movement-header-image"]
+              req.body["movement-remove-header-image"] == "on"
+                ? ""
+                : req.files && req.files["movement-header-image"]
                 ? imagePrefix + req.files["movement-header-image"][0].filename
-                : // : postdb.movement
-                  // ? postdb.movement.headingImgSource
-                  "",
+                : postdb.movement
+                ? postdb.movement.headingImgSource
+                : "",
             type: "movement",
           }
         : null,
@@ -73,11 +78,13 @@ module.exports = async (req, res) => {
             description: req.body["sutra-description"],
             audioURL: req.body["sutra-audio-url"],
             headingImgSource:
-              req.files && req.files["sutra-header-image"]
+              req.body["sutra-remove-header-image"] == "on"
+                ? ""
+                : req.files && req.files["sutra-header-image"]
                 ? imagePrefix + req.files["sutra-header-image"][0].filename
-                : // : postdb.sutra
-                  // ? postdb.sutra.headingImgSource
-                  "",
+                : postdb.sutra
+                ? postdb.sutra.headingImgSource
+                : "",
             type: "sutra",
           }
         : null,

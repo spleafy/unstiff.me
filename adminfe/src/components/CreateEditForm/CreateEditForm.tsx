@@ -1,9 +1,8 @@
-import React, { useState, useRef } from "react";
-import { Formik, Field, Form, ErrorMessage } from "formik";
+import React from "react";
+import { Field, ErrorMessage } from "formik";
 import Post from "../Post/Post";
 import "./CreateEditForm.scss";
 import { useLocation } from "react-router-dom";
-// import { Editor } from "@tinymce/tinymce-react";
 import "react-quill/dist/quill.snow.css";
 import ReactQuill from "react-quill";
 
@@ -13,7 +12,7 @@ interface CreateEditProps {
   url: string;
 }
 
-const CreateEditForm = ({ props, method, url }: any) => {
+const CreateEditForm = ({ props, method, url }: CreateEditProps) => {
   const router = useLocation();
 
   const fileURL: any = (input: any) => {
@@ -113,16 +112,11 @@ const CreateEditForm = ({ props, method, url }: any) => {
               />
             </label>
 
-            <button
-              type="button"
-              onClick={() => {
-                props.handleChange({
-                  target: { name: "interview-person-image", value: "" },
-                });
-              }}
-            >
-              Remove Person Image
-            </button>
+            <input
+              type="checkbox"
+              name="interview-remove-person-image"
+              id="interview-remove-person-image"
+            />
 
             <label
               htmlFor="interview-header-image"
@@ -141,16 +135,12 @@ const CreateEditForm = ({ props, method, url }: any) => {
                 }}
               />
             </label>
-            <button
-              type="button"
-              onClick={() => {
-                props.handleChange({
-                  target: { name: "interview-heading-image", value: "" },
-                });
-              }}
-            >
-              Remove Header Image
-            </button>
+
+            <input
+              type="checkbox"
+              name="interview-remove-header-image"
+              id="interview-remove-header-image"
+            />
           </div>
         </div>
         <div className="ue-post-box">
@@ -229,16 +219,11 @@ const CreateEditForm = ({ props, method, url }: any) => {
                 });
               }}
             />
-            <button
-              type="button"
-              onClick={() => {
-                props.handleChange({
-                  target: { name: "recipe-heading-image", value: "" },
-                });
-              }}
-            >
-              Remove Header Image
-            </button>
+            <input
+              type="checkbox"
+              name="recipe-remove-header-image"
+              id="recipe-remove-header-image"
+            />
             <div />
           </div>
         </div>
@@ -305,16 +290,11 @@ const CreateEditForm = ({ props, method, url }: any) => {
                 });
               }}
             />
-            <button
-              type="button"
-              onClick={() => {
-                props.handleChange({
-                  target: { name: "movement-heading-image", value: "" },
-                });
-              }}
-            >
-              Remove Header Image
-            </button>
+            <input
+              type="checkbox"
+              name="movement-remove-header-image"
+              id="movement-remove-header-image"
+            />
           </div>
         </div>
         <div className="ue-post-box">
@@ -380,16 +360,11 @@ const CreateEditForm = ({ props, method, url }: any) => {
                 });
               }}
             />
-            <button
-              type="button"
-              onClick={() => {
-                props.handleChange({
-                  target: { name: "sutra-heading-image", value: "" },
-                });
-              }}
-            >
-              Remove Header Image
-            </button>
+            <input
+              type="checkbox"
+              name="sutra-remove-header-image"
+              id="sutra-remove-header-image"
+            />
           </div>
         </div>
         <div className="ue-post-box">
@@ -403,7 +378,7 @@ const CreateEditForm = ({ props, method, url }: any) => {
         </div>
       </div>
       <button type="submit">
-        {router.pathname == "/admin/create" ? "Create Post" : "Save Edit"}
+        {router.pathname === "/admin/create" ? "Create Post" : "Save Edit"}
       </button>
     </form>
   );
