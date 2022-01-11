@@ -1,6 +1,6 @@
 .ue-admin-page {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
   gap: 20px;
 
   .ue-post-wrapper {

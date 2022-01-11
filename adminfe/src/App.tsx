@@ -4,12 +4,7 @@ import AdminPage from "./components/AdminPage/AdminPage";
 import CreatePage from "./components/CreatePage/CreatePage";
 import NotFoundPage from "./components/NotFoundPage/NotFoundPage";
 import SettingsPage from "./components/SettingsPage/SettingsPage";
-import {
-  Routes,
-  Route,
-  BrowserRouter as Router,
-  useNavigate,
-} from "react-router-dom";
+import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import EditPage from "./components/EditPage/EditPage";
 
 function App() {

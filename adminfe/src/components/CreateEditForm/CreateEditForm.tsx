@@ -55,7 +55,7 @@ const CreateEditForm = ({ props, method, url }: CreateEditProps) => {
             className="interview-required-field"
           />
 
-          <label htmlFor="interview-description">Interview Description:</label>
+          <label htmlFor="interview-description">Description:</label>
 
           <ReactQuill
             value={props.values["interview-description"]}
@@ -112,11 +112,14 @@ const CreateEditForm = ({ props, method, url }: CreateEditProps) => {
               />
             </label>
 
-            <input
-              type="checkbox"
-              name="interview-remove-person-image"
-              id="interview-remove-person-image"
-            />
+            <label htmlFor="interview-remove-person-image">
+              Remove Person Image
+              <input
+                type="checkbox"
+                name="interview-remove-person-image"
+                id="interview-remove-person-image"
+              />
+            </label>
 
             <label
               htmlFor="interview-header-image"
@@ -136,11 +139,14 @@ const CreateEditForm = ({ props, method, url }: CreateEditProps) => {
               />
             </label>
 
-            <input
-              type="checkbox"
-              name="interview-remove-header-image"
-              id="interview-remove-header-image"
-            />
+            <label htmlFor="interview-remove-header-image">
+              Remove Header Image
+              <input
+                type="checkbox"
+                name="interview-remove-header-image"
+                id="interview-remove-header-image"
+              />
+            </label>
           </div>
         </div>
         <div className="ue-post-box">
@@ -166,7 +172,7 @@ const CreateEditForm = ({ props, method, url }: CreateEditProps) => {
             className="recipe-required-field"
           />
 
-          <label htmlFor="recipe-description">Interview Description:</label>
+          <label htmlFor="recipe-description">Description:</label>
 
           <ReactQuill
             className="recipe-required-field"
@@ -219,11 +225,15 @@ const CreateEditForm = ({ props, method, url }: CreateEditProps) => {
                 });
               }}
             />
-            <input
-              type="checkbox"
-              name="recipe-remove-header-image"
-              id="recipe-remove-header-image"
-            />
+            <label htmlFor="recipe-remove-header-image">
+              Remove Header Image
+              <input
+                type="checkbox"
+                name="recipe-remove-header-image"
+                id="recipe-remove-header-image"
+              />
+            </label>
+
             <div />
           </div>
         </div>
@@ -248,7 +258,7 @@ const CreateEditForm = ({ props, method, url }: CreateEditProps) => {
             className="movement-required-field"
           />
 
-          <label htmlFor="movement-description">Interview Description:</label>
+          <label htmlFor="movement-description">Description:</label>
 
           <ReactQuill
             className="movement-required-field"
@@ -290,11 +300,14 @@ const CreateEditForm = ({ props, method, url }: CreateEditProps) => {
                 });
               }}
             />
-            <input
-              type="checkbox"
-              name="movement-remove-header-image"
-              id="movement-remove-header-image"
-            />
+            <label htmlFor="movement-remove-header-image">
+              Remove Header Image
+              <input
+                type="checkbox"
+                name="movement-remove-header-image"
+                id="movement-remove-header-image"
+              />
+            </label>
           </div>
         </div>
         <div className="ue-post-box">
@@ -318,14 +331,7 @@ const CreateEditForm = ({ props, method, url }: CreateEditProps) => {
             className="sutra-required-field"
           />
 
-          <label htmlFor="sutra-audio-url">Audio URL:</label>
-          <Field
-            name="sutra-audio-url"
-            type="text"
-            placeholder="Enter audio URL:"
-            className="sutra-required-field"
-          />
-          <label htmlFor="sutra-description">Sutra Description:</label>
+          <label htmlFor="sutra-description">Description:</label>
 
           <ReactQuill
             className="sutra-required-field"
@@ -345,6 +351,14 @@ const CreateEditForm = ({ props, method, url }: CreateEditProps) => {
             style={{ display: "none" }}
           />
 
+          <label htmlFor="sutra-audio-url">Audio URL:</label>
+          <Field
+            name="sutra-audio-url"
+            type="text"
+            placeholder="Enter audio URL:"
+            className="sutra-required-field"
+          />
+
           <div className="select-file-box">
             <label htmlFor="sutra-header-image" className="input-file-label">
               Select Header Image
@@ -360,11 +374,14 @@ const CreateEditForm = ({ props, method, url }: CreateEditProps) => {
                 });
               }}
             />
-            <input
-              type="checkbox"
-              name="sutra-remove-header-image"
-              id="sutra-remove-header-image"
-            />
+            <label htmlFor="sutra-remove-header-image">
+              Remove Header Image
+              <input
+                type="checkbox"
+                name="sutra-remove-header-image"
+                id="sutra-remove-header-image"
+              />
+            </label>
           </div>
         </div>
         <div className="ue-post-box">

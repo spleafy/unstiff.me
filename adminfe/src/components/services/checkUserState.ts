@@ -13,7 +13,7 @@ export const checkUserState = async (navigate: any, setLoggedIn: any) => {
 
   const data = await response.json();
 
-  if (data.data.id.length > 0 && data.status == 200) {
+  if (data.data.id.length > 0 && data.status === 200) {
     setLoggedIn(true);
   } else {
     setLoggedIn(false);

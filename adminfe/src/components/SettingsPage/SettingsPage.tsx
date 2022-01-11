@@ -5,7 +5,6 @@ import { checkUserState } from "../services/checkUserState";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
 import Loader from "../Loader/Loader";
-import { FiEye, FiEyeOff } from "react-icons/fi";
 import "./SettingsPage.scss";
 import ErrorBox from "../ErrorBox/ErrorBox";
 
@@ -25,7 +24,7 @@ const SettingsPage = () => {
     };
 
     effect();
-  }, []);
+  }, [navigate]);
 
   const usernameSchema = yup.object().shape({
     username: yup
@@ -95,7 +94,7 @@ const SettingsPage = () => {
 
                 console.log(data);
 
-                if (data.status == 401) {
+                if (data.status === 401) {
                   setErrors([...errors, "Wrong Password!"]);
                 } else {
                   navigate("/admin");
@@ -144,7 +143,7 @@ const SettingsPage = () => {
 
                 const data = await response.json();
 
-                if (data.status == 401) {
+                if (data.status === 401) {
                   setErrors([...errors, "Wrong Password!"]);
                 } else {
                   navigate("/admin");

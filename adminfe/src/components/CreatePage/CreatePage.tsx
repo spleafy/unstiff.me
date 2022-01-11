@@ -26,7 +26,7 @@ const CreatePage = () => {
     };
 
     effect();
-  }, []);
+  }, [navigate]);
 
   return (
     <>

@@ -26,7 +26,7 @@ const EditPage = () => {
     };
 
     effect();
-  }, []);
+  }, [navigate]);
 
   const { postId } = useParams();
 
@@ -46,7 +46,7 @@ const EditPage = () => {
 
       const data = await post.json();
 
-      if (data.status == 200) {
+      if (data.status === 200) {
         setPost(data.data.post);
       } else {
         navigate("/");
@@ -54,7 +54,7 @@ const EditPage = () => {
     };
 
     getPost();
-  }, []);
+  }, [navigate, postId]);
 
   const [post, setPost]: any = useState({
     name: "",

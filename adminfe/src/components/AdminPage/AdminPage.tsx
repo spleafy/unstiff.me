@@ -15,6 +15,8 @@ const AdminPage = () => {
 
   const [loading, setLoading] = useState(true);
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     const effect = async () => {
       const fetchData = async () => {
@@ -42,12 +44,10 @@ const AdminPage = () => {
     };
 
     effect();
-  }, []);
-
-  const navigate = useNavigate();
+  }, [navigate]);
 
   const handleDeleteClick: any = (id: string) => {
-    if (deleteRender == true) return;
+    if (deleteRender === true) return;
     setdeleteRender(true);
     setpostId(id);
   };

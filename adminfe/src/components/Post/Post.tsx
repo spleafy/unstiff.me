@@ -36,8 +36,6 @@ const Post = (props: PostProps) => {
 
   const imgPrefix = `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_ADBE_PORT}/images/`;
 
-  console.log(props.headingImgSource);
-
   return (
     <div
       className="ue-person-post"

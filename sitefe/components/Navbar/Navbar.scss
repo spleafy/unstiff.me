@@ -19,6 +19,10 @@
       cursor: pointer;
       color: var(--ue-secondary-color);
 
+      .ue-navbar__close {
+        display: none;
+      }
+
       &.ue-active-link {
         color: #fff;
       }
@@ -42,10 +46,69 @@
 @media only screen and (max-width: 980px) {
   .ue-navbar {
     .ue-navbar__links {
-      display: none;
+      display: flex;
+      position: absolute;
+      right: -100%;
+      transition: right 0.2s ease-in-out;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      display: flex;
+      padding: 55px 60px;
+      align-items: center;
+      // justify-content: center;
+      flex-direction: column;
+      background-color: darken(#42cfc7, 15%);
+      z-index: 10000;
+
+      .ue-links {
+        flex-grow: 1;
+        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      span {
+        color: #fff;
+        margin-top: 10px;
+        font-size: 16pt;
+      }
+
+      .ue-navbar__close {
+        top: 0;
+        align-self: flex-end;
+        display: block;
+        cursor: pointer;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        div {
+          height: 100%;
+          width: 5px;
+          // background: var(--ue-secondary-color);
+          background: #fff;
+          position: absolute;
+
+          &:nth-child(1) {
+            transform: rotate(45deg);
+          }
+
+          &:nth-child(2) {
+            transform: rotate(-45deg);
+          }
+        }
+      }
     }
 
-    .ue-navbar__toggle {
+    .ue-navbar__links.ue-navbar__links_extended {
+      right: 0;
+    }
+
+    .ue-navbar__toggle,
+    .ue-navbar__close {
       width: 35px;
       height: 25px;
       display: flex !important;
@@ -60,12 +123,20 @@
     height: 65px;
     padding: 20px;
 
-    .ue-navbar__logo {
-      width: 60%;
+    .ue-navbar__links {
+      padding: 20px;
+
+      &.ue-navbar__links_extended {
+        width: 100%;
+      }
+
+      // span {
+      //   font-size: unset;
+      // }
     }
 
-    .ue-navbar__links {
-      display: none;
+    .ue-navbar__logo {
+      width: 60%;
     }
 
     .ue-navbar__toggle {
