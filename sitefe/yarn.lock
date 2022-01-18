@@ -343,6 +343,56 @@
   "resolved" "https://registry.npmjs.org/@next/react-refresh-utils/-/react-refresh-utils-12.0.6.tgz"
   "version" "12.0.6"
 
+"@next/swc-android-arm64@12.0.6":
+  "integrity" "sha512-mxlvxw4uzgxAZNiOiFtXyEQccLqLJYFRom+wxuKJ+krcOXZuFPEk5sClUxG4ewrnlVJNZ6BIeOy/q/K9132r5w=="
+  "resolved" "https://registry.npmjs.org/@next/swc-android-arm64/-/swc-android-arm64-12.0.6.tgz"
+  "version" "12.0.6"
+
+"@next/swc-darwin-arm64@12.0.6":
+  "integrity" "sha512-uPC5NViFYgggffTWXtcI8kHrXZPLfpS5NECtmajURgs4SMRH9dE7l+M1HvmfkyirnhI49l/MuQ5B3h47UN80Bg=="
+  "resolved" "https://registry.npmjs.org/@next/swc-darwin-arm64/-/swc-darwin-arm64-12.0.6.tgz"
+  "version" "12.0.6"
+
+"@next/swc-darwin-x64@12.0.6":
+  "integrity" "sha512-HYfbUlG4ebcqol5xnhqXPsgfdnYk9knDW8RD//gvdTc42ER5JyLoZxwhEj+1cCvhwglA9gKXopqyjoDqqqJ4FQ=="
+  "resolved" "https://registry.npmjs.org/@next/swc-darwin-x64/-/swc-darwin-x64-12.0.6.tgz"
+  "version" "12.0.6"
+
+"@next/swc-linux-arm-gnueabihf@12.0.6":
+  "integrity" "sha512-0qp0RX7EHtAwZX5OjrNfITaAVRUTbUU2snv1LnWLOk+PRWpGE0T8mMRLrwiE0btb7Gm4RGhlJi9+v05jJpk9BA=="
+  "resolved" "https://registry.npmjs.org/@next/swc-linux-arm-gnueabihf/-/swc-linux-arm-gnueabihf-12.0.6.tgz"
+  "version" "12.0.6"
+
+"@next/swc-linux-arm64-gnu@12.0.6":
+  "integrity" "sha512-juOq0jBOgjgpfDcOvLxTQh/hAja44ozEu5g14MvWWiUPC78VKK8Lm4Swso5aV6dYbmDd9d+9V1st0rz5ewUoiA=="
+  "resolved" "https://registry.npmjs.org/@next/swc-linux-arm64-gnu/-/swc-linux-arm64-gnu-12.0.6.tgz"
+  "version" "12.0.6"
+
+"@next/swc-linux-arm64-musl@12.0.6":
+  "integrity" "sha512-UcYVOBi+BbPuyZdBjwFPBqp5gCDhlT1tPh1bv7lrMTIAkT9EQM08n5ASjnC0EnLT7DT1rs+OqgydmcreURt64A=="
+  "resolved" "https://registry.npmjs.org/@next/swc-linux-arm64-musl/-/swc-linux-arm64-musl-12.0.6.tgz"
+  "version" "12.0.6"
+
+"@next/swc-linux-x64-gnu@12.0.6":
+  "integrity" "sha512-f95Inf9maFy2SQirV8stPirrJJ4nNAoXO8AhNruvlcEwrnrjeXXhSWBgsuUEeCqODHAsfZgPgZigt2OOmU9t8A=="
+  "resolved" "https://registry.npmjs.org/@next/swc-linux-x64-gnu/-/swc-linux-x64-gnu-12.0.6.tgz"
+  "version" "12.0.6"
+
+"@next/swc-linux-x64-musl@12.0.6":
+  "integrity" "sha512-pugrkbitG3tCR201VOCEd+yU+fCESNC469M9Fwp3WAuc8FK9byz3AO5U6r31a7ZAYY4ny/kgSAyKJ8g+Gt1rgA=="
+  "resolved" "https://registry.npmjs.org/@next/swc-linux-x64-musl/-/swc-linux-x64-musl-12.0.6.tgz"
+  "version" "12.0.6"
+
+"@next/swc-win32-arm64-msvc@12.0.6":
+  "integrity" "sha512-yRhE+uodGKXIY90CiiAbfcxxlfOW6B/VLNaNSzjgk4Tjb3BC4cNVZVKhNGMjrMysh1LAuO47XBqIoFkih0607A=="
+  "resolved" "https://registry.npmjs.org/@next/swc-win32-arm64-msvc/-/swc-win32-arm64-msvc-12.0.6.tgz"
+  "version" "12.0.6"
+
+"@next/swc-win32-ia32-msvc@12.0.6":
+  "integrity" "sha512-IOMJWSRnWuUUiqLGTpr9Y8VmJu77dUYSUg7p/5qTjRDxxIcNXHXXANpStfKwEE8PuoaNx/pUk/PyQYUCVOOyyQ=="
+  "resolved" "https://registry.npmjs.org/@next/swc-win32-ia32-msvc/-/swc-win32-ia32-msvc-12.0.6.tgz"
+  "version" "12.0.6"
+
 "@next/swc-win32-x64-msvc@12.0.6":
   "integrity" "sha512-Tj2faobjX49i21akxCJZQiAD2hh6+Wuo/HNGUna9XR74J8WfTageryl5BiKBjIsmXPrt+C6afL4MVZHu9FsQmg=="
   "resolved" "https://registry.npmjs.org/@next/swc-win32-x64-msvc/-/swc-win32-x64-msvc-12.0.6.tgz"
@@ -934,6 +984,7 @@
   dependencies:
     "anymatch" "~3.1.1"
     "braces" "~3.0.2"
+    "fsevents" "~2.3.1"
     "glob-parent" "~5.1.0"
     "is-binary-path" "~2.1.0"
     "is-glob" "~4.0.1"
@@ -1748,6 +1799,11 @@
   "integrity" "sha1-FQStJSMVjKpA20onh8sBQRmU6k8="
   "resolved" "https://registry.npmjs.org/fs.realpath/-/fs.realpath-1.0.0.tgz"
   "version" "1.0.0"
+
+"fsevents@~2.3.1":
+  "integrity" "sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA=="
+  "resolved" "https://registry.npmjs.org/fsevents/-/fsevents-2.3.2.tgz"
+  "version" "2.3.2"
 
 "function-bind@^1.1.1":
   "integrity" "sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A=="
@@ -2659,6 +2715,17 @@
     "@next/polyfill-module" "12.0.6"
     "@next/react-dev-overlay" "12.0.6"
     "@next/react-refresh-utils" "12.0.6"
+    "@next/swc-android-arm64" "12.0.6"
+    "@next/swc-darwin-arm64" "12.0.6"
+    "@next/swc-darwin-x64" "12.0.6"
+    "@next/swc-linux-arm-gnueabihf" "12.0.6"
+    "@next/swc-linux-arm64-gnu" "12.0.6"
+    "@next/swc-linux-arm64-musl" "12.0.6"
+    "@next/swc-linux-x64-gnu" "12.0.6"
+    "@next/swc-linux-x64-musl" "12.0.6"
+    "@next/swc-win32-arm64-msvc" "12.0.6"
+    "@next/swc-win32-ia32-msvc" "12.0.6"
+    "@next/swc-win32-x64-msvc" "12.0.6"
     "acorn" "8.5.0"
     "assert" "2.0.0"
     "browserify-zlib" "0.2.0"

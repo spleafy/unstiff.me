@@ -11,6 +11,8 @@ const Posts = ({ posts }: any) => {
   //   }
   // };
 
+  const types = ["interview", "recipe", "movement", "sutra"];
+
   return (
     <>
       {posts.map((post: any, index: number) =>
@@ -23,68 +25,25 @@ const Posts = ({ posts }: any) => {
             key={index}
             // style={{ height: getHeight(this) }}
           >
-            {post.interview != null ? (
-              <Post
-                title={post.interview.title}
-                audioURL={post.interview.audioURL}
-                imgSource={post.interview.imgSource}
-                subtitle={post.interview.subtitle}
-                description={post.interview.description}
-                headingImgSource={post.interview.headingImgSource}
-                type={post.interview.type}
-                _id={post._id}
-                key={Math.random() * 100}
-              />
-            ) : (
-              <div key={Math.random() * 100} style={{ display: "none" }}></div>
-            )}
-
-            {post.recipe != null ? (
-              <Post
-                title={post.recipe.title}
-                audioURL={post.recipe.audioURL}
-                imgSource={post.recipe.imgSource}
-                subtitle={post.recipe.subtitle}
-                description={post.recipe.description}
-                headingImgSource={post.recipe.headingImgSource}
-                type={post.recipe.type}
-                _id={post._id}
-                key={Math.random() * 100}
-              />
-            ) : (
-              <div key={Math.random() * 100} style={{ display: "none" }}></div>
-            )}
-
-            {post.movement != null ? (
-              <Post
-                title={post.movement.title}
-                audioURL={post.movement.audioURL}
-                imgSource={post.movement.imgSource}
-                subtitle={post.movement.subtitle}
-                description={post.movement.description}
-                headingImgSource={post.movement.headingImgSource}
-                type={post.movement.type}
-                _id={post._id}
-                key={Math.random() * 100}
-              />
-            ) : (
-              <div key={Math.random() * 100} style={{ display: "none" }}></div>
-            )}
-
-            {post.sutra != null ? (
-              <Post
-                title={post.sutra.title}
-                audioURL={post.sutra.audioURL}
-                imgSource={post.sutra.imgSource}
-                subtitle={post.sutra.subtitle}
-                description={post.sutra.description}
-                headingImgSource={post.sutra.headingImgSource}
-                type={post.sutra.type}
-                _id={post._id}
-                key={Math.random() * 100}
-              />
-            ) : (
-              <div key={Math.random() * 100} style={{ display: "none" }}></div>
+            {types.map((type) =>
+              post[type] != null ? (
+                <Post
+                  title={post[type].title} //post.interview.title
+                  audioURL={post[type].audioURL}
+                  imgSource={post[type].imgSource}
+                  subtitle={post[type].subtitle}
+                  description={post[type].description}
+                  headingImgSource={post[type].headingImgSource}
+                  type={post[type].type}
+                  _id={post._id}
+                  key={Math.random() * 100}
+                />
+              ) : (
+                <div
+                  key={Math.random() * 100}
+                  style={{ display: "none" }}
+                ></div>
+              )
             )}
           </div>
         ) : (
