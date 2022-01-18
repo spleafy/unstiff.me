@@ -77,6 +77,23 @@ const Navbar = () => {
               Сутри
             </span>
           </Link>
+          <div className="language-links">
+            <span
+              onClick={() => {
+                localStorage.setItem("language", "en");
+              }}
+            >
+              En
+            </span>
+            <div className="separator"></div>
+            <span
+              onClick={() => {
+                localStorage.setItem("language", "bg");
+              }}
+            >
+              Bg
+            </span>
+          </div>
         </div>
       </div>
       <div

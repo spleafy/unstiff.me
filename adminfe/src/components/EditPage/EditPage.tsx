@@ -97,12 +97,23 @@ const EditPage = () => {
               <Formik
                 initialValues={{
                   "post-name": post.name,
-                  "interview-title": post.interview ? post.interview.title : "",
-                  "interview-subtitle": post.interview
-                    ? post.interview.subtitle
+                  "interview-title-bg": post.interview
+                    ? post.interview.title_bg
                     : "",
-                  "interview-description": post.interview
-                    ? post.interview.description
+                  "interview-title-en": post.interview
+                    ? post.interview.title_en
+                    : "",
+                  "interview-subtitle-bg": post.interview
+                    ? post.interview.subtitle_bg
+                    : "",
+                  "interview-subtitle-en": post.interview
+                    ? post.interview.subtitle_en
+                    : "",
+                  "interview-description-bg": post.interview
+                    ? post.interview.description_bg
+                    : "",
+                  "interview-description-en": post.interview
+                    ? post.interview.description_en
                     : "",
                   "interview-audio-url": post.interview
                     ? post.interview.audioURL
@@ -114,18 +125,30 @@ const EditPage = () => {
                     ? post.interview.headingImgSource
                     : "",
                   "interview-type": "interview",
-                  "recipe-title": post.recipe ? post.recipe.title : "",
-                  "recipe-description": post.recipe
-                    ? post.recipe.description
+                  "recipe-title-bg": post.recipe ? post.recipe.title_bg : "",
+                  "recipe-title-en": post.recipe ? post.recipe.title_en : "",
+                  "recipe-description-bg": post.recipe
+                    ? post.recipe.description_bg
+                    : "",
+                  "recipe-description-en": post.recipe
+                    ? post.recipe.description_en
                     : "",
                   "recipe-audio-url": post.recipe ? post.recipe.audioURL : "",
                   "recipe-heading-image": post.recipe
                     ? post.recipe.headingImgSource
                     : "",
                   "recipe-type": "recipe",
-                  "movement-title": post.movement ? post.movement.title : "",
-                  "movement-description": post.movement
-                    ? post.movement.description
+                  "movement-title-bg": post.movement
+                    ? post.movement.title_bg
+                    : "",
+                  "movement-title-en": post.movement
+                    ? post.movement.title_en
+                    : "",
+                  "movement-description-bg": post.movement
+                    ? post.movement.description_bg
+                    : "",
+                  "movement-description-en": post.movement
+                    ? post.movement.description_en
                     : "",
                   "movement-audio-url": post.movement
                     ? post.movement.audioURL
@@ -134,8 +157,14 @@ const EditPage = () => {
                     ? post.movement.headingImgSource
                     : "",
                   "movement-type": "movement",
-                  "sutra-title": post.sutra ? post.sutra.title : "",
-                  "sutra-description": post.sutra ? post.sutra.description : "",
+                  "sutra-title-bg": post.sutra ? post.sutra.title_bg : "",
+                  "sutra-title-en": post.sutra ? post.sutra.title_en : "",
+                  "sutra-description-bg": post.sutra
+                    ? post.sutra.description_bg
+                    : "",
+                  "sutra-description-en": post.sutra
+                    ? post.sutra.description_en
+                    : "",
                   "sutra-audio-url": post.sutra ? post.sutra.audioURL : "",
                   "sutra-heading-image": post.sutra
                     ? post.sutra.headingImgSource

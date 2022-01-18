@@ -3,7 +3,6 @@ import PostProps from "../../models/PostProps";
 import PlayButton from "../../components/PlayButton/PlayButton";
 import ProfilePicture from "../../public/profilepicture.jpg";
 import Posts from "../../components/Posts/Posts";
-import { idPush } from "..";
 import { definePostLabel } from "../../components/Post/Post";
 import Link from "next/link";
 
@@ -58,6 +57,13 @@ const Recipe = ({ post }: any) => {
     return expression.test(post.recipe.audioURL);
   };
 
+  let language = localStorage.getItem("language");
+
+  if (language == null) {
+    localStorage.setItem("language", "bg");
+    language = "bg";
+  }
+
   return (
     <>
       {post.recipe ? (
@@ -84,8 +90,8 @@ const Recipe = ({ post }: any) => {
                 )}
 
                 <div className="ue-main-header__text">
-                  <h1>{post.recipe.title}</h1>
-                  <p>{post.recipe.subtitle}</p>
+                  <h1>{post.recipe["title-" + language]}</h1>
+                  <p>{post.recipe["subtitle-" + language]}</p>
                   <div
                     onClick={() => {
                       toggleAudio();
@@ -101,7 +107,9 @@ const Recipe = ({ post }: any) => {
               </div>
               <div
                 className="ue-main-header__description"
-                dangerouslySetInnerHTML={{ __html: post.recipe.description }}
+                dangerouslySetInnerHTML={{
+                  __html: post.recipe["description-" + language],
+                }}
               ></div>
             </div>
           </div>

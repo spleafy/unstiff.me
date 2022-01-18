@@ -57,6 +57,13 @@ const Movement = ({ post }: any) => {
     return expression.test(post.movement.audioURL);
   };
 
+  let language = localStorage.getItem("language");
+
+  if (language == null) {
+    localStorage.setItem("language", "bg");
+    language = "bg";
+  }
+
   return (
     <>
       {post.movement ? (
@@ -83,8 +90,8 @@ const Movement = ({ post }: any) => {
                 )}
 
                 <div className="ue-main-header__text">
-                  <h1>{post.movement.title}</h1>
-                  <p>{post.movement.subtitle}</p>
+                  <h1>{post.movement["title-" + language]}</h1>
+                  <p>{post.movement["subtitle-" + language]}</p>
                   <div
                     onClick={() => {
                       toggleAudio();
@@ -100,7 +107,9 @@ const Movement = ({ post }: any) => {
               </div>
               <div
                 className="ue-main-header__description"
-                dangerouslySetInnerHTML={{ __html: post.movement.description }}
+                dangerouslySetInnerHTML={{
+                  __html: post.movement["description-" + language],
+                }}
               ></div>
             </div>
           </div>

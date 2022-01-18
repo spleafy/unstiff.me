@@ -11,6 +11,11 @@
   }
 
   .ue-navbar__links {
+    .ue-links {
+      display: flex;
+      align-items: center;
+    }
+
     span {
       text-transform: uppercase;
       font-weight: bold;
@@ -25,6 +30,23 @@
 
       &.ue-active-link {
         color: #fff;
+      }
+    }
+
+    .language-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      span {
+        margin: 0 5px;
+      }
+
+      .separator {
+        margin: 0 5px;
+        height: 20px;
+        background: var(--ue-secondary-color);
+        width: 2px;
       }
     }
   }

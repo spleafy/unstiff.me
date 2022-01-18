@@ -1,4 +1,3 @@
-import { chunkify } from "../../pages";
 import PostProps from "../../models/PostProps";
 import Post from "../Post/Post";
 import { useEffect } from "react";

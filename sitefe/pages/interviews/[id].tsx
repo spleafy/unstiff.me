@@ -57,6 +57,13 @@ const Interview = ({ post }: any) => {
     return expression.test(post.interview.audioURL);
   };
 
+  let language = localStorage.getItem("language");
+
+  if (language == null) {
+    localStorage.setItem("language", "bg");
+    language = "bg";
+  }
+
   return (
     <>
       {post.interview ? (
@@ -83,8 +90,8 @@ const Interview = ({ post }: any) => {
                 )}
 
                 <div className="ue-main-header__text">
-                  <h1>{post.interview.title}</h1>
-                  <p>{post.interview.subtitle}</p>
+                  <h1>{post.interview["title-" + language]}</h1>
+                  <p>{post.interview["subtitle-" + language]}</p>
                   <div
                     onClick={() => {
                       toggleAudio();
@@ -100,7 +107,9 @@ const Interview = ({ post }: any) => {
               </div>
               <div
                 className="ue-main-header__description"
-                dangerouslySetInnerHTML={{ __html: post.interview.description }}
+                dangerouslySetInnerHTML={{
+                  __html: post.interview["description-" + language],
+                }}
               ></div>
             </div>
           </div>

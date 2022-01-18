@@ -40,37 +40,74 @@ const CreateEditForm = ({ props, method, url }: CreateEditProps) => {
             <ErrorMessage name="post-name" />
           </div>
           <h1>Interview</h1>
-          <label htmlFor="interview-title">Title:</label>
+          <label htmlFor="interview-title-bg">Bulgarian Title:</label>
           <Field
-            name="interview-title"
+            name="interview-title-bg"
             type="text"
             placeholder="Enter title:"
             className="interview-required-field"
           />
-          <label htmlFor="interview-subtitle">Subtitle:</label>
+          <label htmlFor="interview-title-en">English Title:</label>
           <Field
-            name="interview-subtitle"
+            name="interview-title-en"
+            type="text"
+            placeholder="Enter title:"
+            className="interview-required-field"
+          />
+          <label htmlFor="interview-subtitle-bg">Bulgarian Subtitle:</label>
+          <Field
+            name="interview-subtitle-bg"
             type="text"
             placeholder="Enter subtitle:"
             className="interview-required-field"
           />
 
-          <label htmlFor="interview-description">Description:</label>
+          <label htmlFor="interview-subtitle-en">English Subtitle:</label>
+          <Field
+            name="interview-subtitle-en"
+            type="text"
+            placeholder="Enter subtitle:"
+            className="interview-required-field"
+          />
+
+          <label htmlFor="interview-description-bg">
+            Bulgarian Description:
+          </label>
 
           <ReactQuill
-            value={props.values["interview-description"]}
+            value={props.values["interview-description-bg"]}
             className="interview-required-field"
             onChange={(e) => {
               props.handleChange({
-                target: { name: "interview-description", value: e },
+                target: { name: "interview-description-bg", value: e },
+              });
+            }}
+          />
+
+          <label htmlFor="interview-description-en">Description:</label>
+
+          <ReactQuill
+            value={props.values["interview-description-en"]}
+            className="interview-required-field"
+            onChange={(e) => {
+              props.handleChange({
+                target: { name: "interview-description-en", value: e },
               });
             }}
           />
 
           <input
             type="text"
-            value={props.values["interview-description"]}
-            name="interview-description"
+            value={props.values["interview-description-bg"]}
+            name="interview-description-bg"
+            onChange={() => {}}
+            style={{ display: "none" }}
+          />
+
+          <input
+            type="text"
+            value={props.values["interview-description-en"]}
+            name="interview-description-en"
             onChange={() => {}}
             style={{ display: "none" }}
           />
@@ -151,9 +188,9 @@ const CreateEditForm = ({ props, method, url }: CreateEditProps) => {
         </div>
         <div className="ue-post-box">
           <Post
-            title={props.values["interview-title"]}
-            subtitle={props.values["interview-subtitle"]}
-            description={props.values["interview-description"]}
+            title={props.values["interview-title-bg"]}
+            subtitle={props.values["interview-subtitle-bg"]}
+            description={props.values["interview-description-bg"]}
             type={props.values["interview-type"]}
             audioURL={props.values["interview-audio-url"]}
             imgSource={props.values["interview-person-image"]}
@@ -164,30 +201,58 @@ const CreateEditForm = ({ props, method, url }: CreateEditProps) => {
       <div>
         <div>
           <h1>Recipe</h1>
-          <label htmlFor="recipe-title">Title:</label>
+          <label htmlFor="recipe-title">Bulgarian Title:</label>
           <Field
-            name="recipe-title"
+            name="recipe-title-bg"
             type="text"
             placeholder="Enter title:"
             className="recipe-required-field"
           />
 
-          <label htmlFor="recipe-description">Description:</label>
+          <label htmlFor="recipe-title-en">English Title:</label>
+          <Field
+            name="recipe-title-en"
+            type="text"
+            placeholder="Enter title:"
+            className="recipe-required-field"
+          />
+
+          <label htmlFor="recipe-description-bg">Bulgarian Description:</label>
 
           <ReactQuill
             className="recipe-required-field"
-            value={props.values["recipe-description"]}
+            value={props.values["recipe-description-bg"]}
             onChange={(e) => {
               props.handleChange({
-                target: { name: "recipe-description", value: e },
+                target: { name: "recipe-description-bg", value: e },
               });
             }}
           />
 
           <input
             type="text"
-            value={props.values["recipe-description"]}
-            name="recipe-description"
+            value={props.values["recipe-description-bg"]}
+            name="recipe-description-bg"
+            onChange={() => {}}
+            style={{ display: "none" }}
+          />
+
+          <label htmlFor="recipe-description-en">English Description:</label>
+
+          <ReactQuill
+            className="recipe-required-field"
+            value={props.values["recipe-description-en"]}
+            onChange={(e) => {
+              props.handleChange({
+                target: { name: "recipe-description-en", value: e },
+              });
+            }}
+          />
+
+          <input
+            type="text"
+            value={props.values["recipe-description-en"]}
+            name="recipe-description-en"
             onChange={() => {}}
             style={{ display: "none" }}
           />
@@ -239,7 +304,7 @@ const CreateEditForm = ({ props, method, url }: CreateEditProps) => {
         </div>
         <div className="ue-post-box">
           <Post
-            title={props.values["recipe-title"]}
+            title={props.values["recipe-title-bg"]}
             description={""}
             type={props.values["recipe-type"]}
             audioURL={props.values["recipe-audio-url"]}
@@ -250,30 +315,60 @@ const CreateEditForm = ({ props, method, url }: CreateEditProps) => {
       <div>
         <div>
           <h1>Movement</h1>
-          <label htmlFor="movement-title">Title:</label>
+          <label htmlFor="movement-title-bg">Bulgarian Title:</label>
           <Field
-            name="movement-title"
+            name="movement-title-bg"
             type="text"
             placeholder="Enter title:"
             className="movement-required-field"
           />
 
-          <label htmlFor="movement-description">Description:</label>
+          <label htmlFor="movement-title-en">English Title:</label>
+          <Field
+            name="movement-title-en"
+            type="text"
+            placeholder="Enter title:"
+            className="movement-required-field"
+          />
+
+          <label htmlFor="movement-description-bg">
+            Bulgarian Description:
+          </label>
 
           <ReactQuill
             className="movement-required-field"
-            value={props.values["movement-description"]}
+            value={props.values["movement-description-bg"]}
             onChange={(e) => {
               props.handleChange({
-                target: { name: "movement-description", value: e },
+                target: { name: "movement-description-bg", value: e },
               });
             }}
           />
 
           <input
             type="text"
-            value={props.values["movement-description"]}
-            name="movement-description"
+            value={props.values["movement-description-bg"]}
+            name="movement-description-bg"
+            onChange={() => {}}
+            style={{ display: "none" }}
+          />
+
+          <label htmlFor="movement-description-en">English Description:</label>
+
+          <ReactQuill
+            className="movement-required-field"
+            value={props.values["movement-description-en"]}
+            onChange={(e) => {
+              props.handleChange({
+                target: { name: "movement-description-en", value: e },
+              });
+            }}
+          />
+
+          <input
+            type="text"
+            value={props.values["movement-description-en"]}
+            name="movement-description-en"
             onChange={() => {}}
             style={{ display: "none" }}
           />
@@ -312,7 +407,7 @@ const CreateEditForm = ({ props, method, url }: CreateEditProps) => {
         </div>
         <div className="ue-post-box">
           <Post
-            title={props.values["movement-title"]}
+            title={props.values["movement-title-bg"]}
             description={""}
             type={props.values["movement-type"]}
             audioURL={props.values["movement-audio-url"]}
@@ -323,30 +418,58 @@ const CreateEditForm = ({ props, method, url }: CreateEditProps) => {
       <div>
         <div>
           <h1>Sutra</h1>
-          <label htmlFor="sutra-title">Title:</label>
+          <label htmlFor="sutra-title-bg">Bulgarian Title:</label>
           <Field
-            name="sutra-title"
+            name="sutra-title-bg"
             type="text"
             placeholder="Enter title:"
             className="sutra-required-field"
           />
 
-          <label htmlFor="sutra-description">Description:</label>
+          <label htmlFor="sutra-title-en">English Title:</label>
+          <Field
+            name="sutra-title-en"
+            type="text"
+            placeholder="Enter title:"
+            className="sutra-required-field"
+          />
+
+          <label htmlFor="sutra-description-bg">Bulgarian Description:</label>
 
           <ReactQuill
             className="sutra-required-field"
-            value={props.values["sutra-description"]}
+            value={props.values["sutra-description-bg"]}
             onChange={(e) => {
               props.handleChange({
-                target: { name: "sutra-description", value: e },
+                target: { name: "sutra-description-bg", value: e },
               });
             }}
           />
 
           <input
             type="text"
-            value={props.values["sutra-description"]}
-            name="sutra-description"
+            value={props.values["sutra-description-bg"]}
+            name="sutra-description-bg"
+            onChange={() => {}}
+            style={{ display: "none" }}
+          />
+
+          <label htmlFor="sutra-description-en">English Description:</label>
+
+          <ReactQuill
+            className="sutra-required-field"
+            value={props.values["sutra-description-en"]}
+            onChange={(e) => {
+              props.handleChange({
+                target: { name: "sutra-description-en", value: e },
+              });
+            }}
+          />
+
+          <input
+            type="text"
+            value={props.values["sutra-description-en"]}
+            name="sutra-description-en"
             onChange={() => {}}
             style={{ display: "none" }}
           />
@@ -386,7 +509,7 @@ const CreateEditForm = ({ props, method, url }: CreateEditProps) => {
         </div>
         <div className="ue-post-box">
           <Post
-            title={props.values["sutra-title"]}
+            title={props.values["sutra-title-bg"]}
             description={""}
             type={props.values["sutra-type"]}
             audioURL={props.values["sutra-audio-url"]}
