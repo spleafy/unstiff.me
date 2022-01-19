@@ -98,22 +98,22 @@ const EditPage = () => {
                 initialValues={{
                   "post-name": post.name,
                   "interview-title-bg": post.interview
-                    ? post.interview.title_bg
+                    ? post.interview["title-bg"]
                     : "",
                   "interview-title-en": post.interview
-                    ? post.interview.title_en
+                    ? post.interview["title-en"]
                     : "",
                   "interview-subtitle-bg": post.interview
-                    ? post.interview.subtitle_bg
+                    ? post.interview["subtitle-bg"]
                     : "",
                   "interview-subtitle-en": post.interview
-                    ? post.interview.subtitle_en
+                    ? post.interview["subtitle-en"]
                     : "",
                   "interview-description-bg": post.interview
-                    ? post.interview.description_bg
+                    ? post.interview["description-bg"]
                     : "",
                   "interview-description-en": post.interview
-                    ? post.interview.description_en
+                    ? post.interview["description-en"]
                     : "",
                   "interview-audio-url": post.interview
                     ? post.interview.audioURL
@@ -125,13 +125,13 @@ const EditPage = () => {
                     ? post.interview.headingImgSource
                     : "",
                   "interview-type": "interview",
-                  "recipe-title-bg": post.recipe ? post.recipe.title_bg : "",
-                  "recipe-title-en": post.recipe ? post.recipe.title_en : "",
+                  "recipe-title-bg": post.recipe ? post.recipe["title-bg"] : "",
+                  "recipe-title-en": post.recipe ? post.recipe["title-en"] : "",
                   "recipe-description-bg": post.recipe
-                    ? post.recipe.description_bg
+                    ? post.recipe["description-bg"]
                     : "",
                   "recipe-description-en": post.recipe
-                    ? post.recipe.description_en
+                    ? post.recipe["description-en"]
                     : "",
                   "recipe-audio-url": post.recipe ? post.recipe.audioURL : "",
                   "recipe-heading-image": post.recipe
@@ -139,16 +139,16 @@ const EditPage = () => {
                     : "",
                   "recipe-type": "recipe",
                   "movement-title-bg": post.movement
-                    ? post.movement.title_bg
+                    ? post.movement["title-bg"]
                     : "",
                   "movement-title-en": post.movement
-                    ? post.movement.title_en
+                    ? post.movement["title-en"]
                     : "",
                   "movement-description-bg": post.movement
-                    ? post.movement.description_bg
+                    ? post.movement["description-bg"]
                     : "",
                   "movement-description-en": post.movement
-                    ? post.movement.description_en
+                    ? post.movement["description-en"]
                     : "",
                   "movement-audio-url": post.movement
                     ? post.movement.audioURL
@@ -157,13 +157,13 @@ const EditPage = () => {
                     ? post.movement.headingImgSource
                     : "",
                   "movement-type": "movement",
-                  "sutra-title-bg": post.sutra ? post.sutra.title_bg : "",
-                  "sutra-title-en": post.sutra ? post.sutra.title_en : "",
+                  "sutra-title-bg": post.sutra ? post.sutra["title-bg"] : "",
+                  "sutra-title-en": post.sutra ? post.sutra["title-en"] : "",
                   "sutra-description-bg": post.sutra
-                    ? post.sutra.description_bg
+                    ? post.sutra["description-bg"]
                     : "",
                   "sutra-description-en": post.sutra
-                    ? post.sutra.description_en
+                    ? post.sutra["description-en"]
                     : "",
                   "sutra-audio-url": post.sutra ? post.sutra.audioURL : "",
                   "sutra-heading-image": post.sutra

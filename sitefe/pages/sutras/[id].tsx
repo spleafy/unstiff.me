@@ -1,10 +1,5 @@
-import { useState } from "react";
-import PostProps from "../../models/PostProps";
-import PlayButton from "../../components/PlayButton/PlayButton";
-import ProfilePicture from "../../public/profilepicture.jpg";
-import Posts from "../../components/Posts/Posts";
-import { definePostLabel } from "../../components/Post/Post";
 import Link from "next/link";
+import SinglePost from "../../components/SinglePost/SinglePost";
 
 export async function getServerSideProps({ params }: any) {
   const response = await fetch(
@@ -38,90 +33,15 @@ const Sutra = ({ post }: any) => {
     ];
   }
 
-  const [playing, setPlaying] = useState(false);
-
-  const toggleAudio = async () => {
-    const audio = document.querySelector("audio");
-    if (audio && audio.error == null && !playing) {
-      await audio.play();
-      setPlaying(true);
-    } else if (audio && audio.error == null && playing) {
-      await audio.pause();
-      setPlaying(false);
-    }
-  };
-
-  const isValidURL = () => {
-    const expression =
-      /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
-    return expression.test(post.sutra.audioURL);
-  };
-
-  let language = localStorage.getItem("language");
-
-  if (language == null) {
-    localStorage.setItem("language", "bg");
-    language = "bg";
-  }
-
   return (
     <>
       {post.sutra ? (
-        <>
-          <div className="ue-blue-background"></div>
-          <div className="ue-main-header">
-            <audio src={post.sutra.audioURL}></audio>
-            <div>
-              <div className="ue-main-header__label">
-                {definePostLabel(post.sutra.type)}
-              </div>
-              <div className="ue-main-header__person">
-                {post.sutra.imgSource ? (
-                  <div className="ue-main-header__image">
-                    <img
-                      src={
-                        `http://${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_ADBE_PORT}/images/` +
-                        post.sutra.imgSource
-                      }
-                    />
-                  </div>
-                ) : (
-                  <></>
-                )}
-
-                <div className="ue-main-header__text">
-                  <h1>{post.sutra["title-" + language]}</h1>
-                  <p>{post.sutra["subtitle-" + language]}</p>
-                  <div
-                    onClick={() => {
-                      toggleAudio();
-                    }}
-                  >
-                    {isValidURL() ? (
-                      <PlayButton width={40} height={40} playing={playing} />
-                    ) : (
-                      <></>
-                    )}
-                  </div>
-                </div>
-              </div>
-              <div
-                className="ue-main-header__description"
-                dangerouslySetInnerHTML={{
-                  __html: post.sutra["description-" + language],
-                }}
-              ></div>
-            </div>
-          </div>
-          <div className="ue-main-cards" style={{ justifyContent: "center" }}>
-            <Posts posts={otherPosts} />
-          </div>
-        </>
+        <SinglePost post={post} type="sutra" otherPosts={otherPosts} />
       ) : (
         <div className="ue-main-cards" style={{ justifyContent: "center" }}>
           <h1 style={{ width: "100%", textAlign: "center" }}>
             This post does not exist!{" "}
-            <Link href="/">
+            <Link href="/" passHref>
               <span style={{ textDecoration: "underline", cursor: "pointer" }}>
                 Please go back to the home page!
               </span>

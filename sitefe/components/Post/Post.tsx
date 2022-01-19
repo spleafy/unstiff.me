@@ -2,7 +2,6 @@ import PostProps from "../../models/PostProps";
 import PlayButton from "../PlayButton/PlayButton";
 import ReadMoreButton from "../ReadMoreButton/ReadMoreButton";
 import Link from "next/link";
-import { useState } from "react";
 
 export const definePostLabel = (type: any) => {
   switch (type) {
@@ -52,7 +51,10 @@ const Post = (props: PostProps) => {
   };
 
   return (
-    <Link href={"/" + props.type + "s/" + props._id}>
+    <Link
+      href={"/" + props.type + "s/" + props._id + "?lang=" + props.language}
+      passHref
+    >
       <div
         className="ue-person-post"
         style={{

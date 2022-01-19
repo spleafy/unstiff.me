@@ -9,11 +9,23 @@ const Navbar = () => {
 
   const [extendedNavbar, setExtendedNavbar] = useState(false);
 
+  let language = "";
+
+  const { query } = useRouter();
+
+  if (query.lang == undefined) {
+    language = "bg";
+  } else if (query.lang == "bg") {
+    language = "bg";
+  } else {
+    language = "en";
+  }
+
   return (
     <div className="ue-navbar">
-      <Link href="/">
+      <Link href={"/?lang=" + language} passHref>
         <div className="ue-navbar__logo">
-          <Image src={Logo} />
+          <Image src={Logo} alt="Logo" />
         </div>
       </Link>
       <div
@@ -33,7 +45,7 @@ const Navbar = () => {
           <div></div>
         </div>
         <div className="ue-links">
-          <Link href="/interviews">
+          <Link href={"/interviews?lang=" + language} passHref>
             <span
               className={
                 router.pathname == "/interviews" ? "ue-active-link" : ""
@@ -45,7 +57,7 @@ const Navbar = () => {
               Интервюта
             </span>
           </Link>
-          <Link href="/recipes">
+          <Link href={"/recipes?lang=" + language} passHref>
             <span
               className={router.pathname == "/recipes" ? "ue-active-link" : ""}
               onClick={() => {
@@ -55,7 +67,7 @@ const Navbar = () => {
               Рецепти
             </span>
           </Link>
-          <Link href="/movements">
+          <Link href={"/movements?lang=" + language} passHref>
             <span
               className={
                 router.pathname == "/movements" ? "ue-active-link" : ""
@@ -67,7 +79,7 @@ const Navbar = () => {
               Движение
             </span>
           </Link>
-          <Link href="/sutras">
+          <Link href={"/sutras?lang=" + language} passHref>
             <span
               className={router.pathname == "/sutras" ? "ue-active-link" : ""}
               onClick={() => {
@@ -78,21 +90,23 @@ const Navbar = () => {
             </span>
           </Link>
           <div className="language-links">
-            <span
-              onClick={() => {
-                localStorage.setItem("language", "en");
-              }}
-            >
-              En
-            </span>
+            <Link href={router.pathname + "?lang=bg"} passHref>
+              <span
+                className={
+                  router.query.lang == "bg" || "" ? "ue-active-link" : ""
+                }
+              >
+                Bg
+              </span>
+            </Link>
             <div className="separator"></div>
-            <span
-              onClick={() => {
-                localStorage.setItem("language", "bg");
-              }}
-            >
-              Bg
-            </span>
+            <Link href={router.pathname + "?lang=en"} passHref>
+              <span
+                className={router.query.lang == "en" ? "ue-active-link" : ""}
+              >
+                En
+              </span>
+            </Link>
           </div>
         </div>
       </div>

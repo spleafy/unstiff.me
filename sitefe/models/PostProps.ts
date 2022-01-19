@@ -7,4 +7,5 @@ export default interface PostProps {
   headingImgSource?: any;
   _id?: any;
   type?: string;
+  language: string;
 }
