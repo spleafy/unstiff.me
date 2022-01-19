@@ -84,7 +84,7 @@ const CreateEditForm = ({ props, method, url }: CreateEditProps) => {
             }}
           />
 
-          <label htmlFor="interview-description-en">Description:</label>
+          <label htmlFor="interview-description-en">English Description:</label>
 
           <ReactQuill
             value={props.values["interview-description-en"] || ""}

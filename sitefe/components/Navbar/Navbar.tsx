@@ -93,7 +93,7 @@ const Navbar = () => {
             <Link href={router.pathname + "?lang=bg"} passHref>
               <span
                 className={
-                  router.query.lang == "bg" || "" ? "ue-active-link" : ""
+                  router.query.lang == "bg" || undefined ? "ue-active-link" : ""
                 }
               >
                 Bg
