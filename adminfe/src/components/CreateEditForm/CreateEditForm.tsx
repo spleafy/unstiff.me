@@ -75,7 +75,7 @@ const CreateEditForm = ({ props, method, url }: CreateEditProps) => {
           </label>
 
           <ReactQuill
-            value={props.values["interview-description-bg"]}
+            value={props.values["interview-description-bg"] || ""}
             className="interview-required-field"
             onChange={(e) => {
               props.handleChange({
@@ -87,7 +87,7 @@ const CreateEditForm = ({ props, method, url }: CreateEditProps) => {
           <label htmlFor="interview-description-en">Description:</label>
 
           <ReactQuill
-            value={props.values["interview-description-en"]}
+            value={props.values["interview-description-en"] || ""}
             className="interview-required-field"
             onChange={(e) => {
               props.handleChange({
@@ -221,7 +221,7 @@ const CreateEditForm = ({ props, method, url }: CreateEditProps) => {
 
           <ReactQuill
             className="recipe-required-field"
-            value={props.values["recipe-description-bg"]}
+            value={props.values["recipe-description-bg"] || ""}
             onChange={(e) => {
               props.handleChange({
                 target: { name: "recipe-description-bg", value: e },
@@ -241,7 +241,7 @@ const CreateEditForm = ({ props, method, url }: CreateEditProps) => {
 
           <ReactQuill
             className="recipe-required-field"
-            value={props.values["recipe-description-en"]}
+            value={props.values["recipe-description-en"] || ""}
             onChange={(e) => {
               props.handleChange({
                 target: { name: "recipe-description-en", value: e },
@@ -337,7 +337,7 @@ const CreateEditForm = ({ props, method, url }: CreateEditProps) => {
 
           <ReactQuill
             className="movement-required-field"
-            value={props.values["movement-description-bg"]}
+            value={props.values["movement-description-bg"] || ""}
             onChange={(e) => {
               props.handleChange({
                 target: { name: "movement-description-bg", value: e },
@@ -357,7 +357,7 @@ const CreateEditForm = ({ props, method, url }: CreateEditProps) => {
 
           <ReactQuill
             className="movement-required-field"
-            value={props.values["movement-description-en"]}
+            value={props.values["movement-description-en"] || ""}
             onChange={(e) => {
               props.handleChange({
                 target: { name: "movement-description-en", value: e },
@@ -438,7 +438,7 @@ const CreateEditForm = ({ props, method, url }: CreateEditProps) => {
 
           <ReactQuill
             className="sutra-required-field"
-            value={props.values["sutra-description-bg"]}
+            value={props.values["sutra-description-bg"] || ""}
             onChange={(e) => {
               props.handleChange({
                 target: { name: "sutra-description-bg", value: e },
@@ -458,7 +458,7 @@ const CreateEditForm = ({ props, method, url }: CreateEditProps) => {
 
           <ReactQuill
             className="sutra-required-field"
-            value={props.values["sutra-description-en"]}
+            value={props.values["sutra-description-en"] || ""}
             onChange={(e) => {
               props.handleChange({
                 target: { name: "sutra-description-en", value: e },
