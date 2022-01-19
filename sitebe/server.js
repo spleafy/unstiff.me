@@ -20,10 +20,10 @@ const mongooseStringDatabase = process.env.MONGODB_DATABASE;
 
 const mongoDBConnectionString = `mongodb://${mongooseStringUsername}:${mongooseStringPassword}@${mongooseStringIP}:${mongooseStringPort}/${mongooseStringDatabase}`;
 console.log("Connecting to MongoDB with: " + mongoDBConnectionString);
-// mongoose.connect(mongoDBConnectionString).catch((error) => {
-//   console.warn("Mongoose Connect Error", error);
-// });
-mongoose.connect("mongodb://localhost:27017/Unstiff");
+mongoose.connect(mongoDBConnectionString).catch((error) => {
+  console.warn("Mongoose Connect Error", error);
+});
+// mongoose.connect("mongodb://localhost:27017/Unstiff");
 
 // Get All Posts
 
