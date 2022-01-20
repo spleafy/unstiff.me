@@ -14,7 +14,7 @@ const SinglePost = ({ post, otherPosts, type }: SinglePostProps) => {
   const isValidURL = () => {
     const expression =
       /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
-    return expression.test(post.sutra.audioURL);
+    return expression.test(post[type].audioURL);
   };
 
   const [playing, setPlaying] = useState(false);
