@@ -46,7 +46,6 @@ const Posts = ({ posts }: any) => {
         (post.sutra != null &&
           checkValidity(post.sutra["title-" + language])) ? (
           <div className="ue-post-wrapper" key={index}>
-            {console.log(language)}
             {types.map((type) =>
               post[type] != null &&
               checkValidity(post[type]["title-" + language]) ? (

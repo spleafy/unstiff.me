@@ -10,7 +10,7 @@ const Interviews = ({ posts }: any) => {
 
   return (
     <div className="ue-main-cards">
-      {posts.length > 0 && posts[0].interview ? (
+      {posts.length > 0 && filteredPosts[0].interview ? (
         <Posts posts={filteredPosts} />
       ) : (
         <h1 style={{ width: "100%", textAlign: "center" }}>

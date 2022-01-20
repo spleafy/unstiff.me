@@ -92,8 +92,6 @@ const SettingsPage = () => {
 
                 const data = await response.json();
 
-                console.log(data);
-
                 if (data.status === 401) {
                   setErrors([...errors, "Wrong Password!"]);
                 } else {

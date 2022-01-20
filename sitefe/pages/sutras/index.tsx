@@ -5,13 +5,13 @@ const Sutras = ({ posts }: any) => {
   const filteredPosts: any = [];
   posts.forEach((post: any) => {
     if (post.sutra != null) {
-      filteredPosts.push({ recipe: post.sutra, _id: post._id });
+      filteredPosts.push({ sutra: post.sutra, _id: post._id });
     }
   });
 
   return (
     <div className="ue-main-cards">
-      {posts.length > 0 && posts[0].sutra ? (
+      {posts.length > 0 && filteredPosts[0].sutra ? (
         <Posts posts={filteredPosts} />
       ) : (
         <h1 style={{ width: "100%", textAlign: "center" }}>
