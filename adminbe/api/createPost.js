@@ -13,11 +13,26 @@ module.exports = async (req, res) => {
       req.body["interview-audio-url"]
         ? {
             "title-bg": req.body["interview-title-bg"],
-            "title-en": req.body["interview-title-en"],
+            "title-en":
+              req.body["interview-title-en"] &&
+              req.body["interview-subtitle-en"] &&
+              req.body["interview-description-en"]
+                ? req.body["interview-title-en"]
+                : "",
             "subtitle-bg": req.body["interview-subtitle-bg"],
-            "subtitle-en": req.body["interview-subtitle-en"],
+            "subtitle-en":
+              req.body["interview-title-en"] &&
+              req.body["interview-subtitle-en"] &&
+              req.body["interview-description-en"]
+                ? req.body["interview-subtitle-en"]
+                : "",
             "description-bg": req.body["interview-description-bg"],
-            "description-en": req.body["interview-description-en"],
+            "description-en":
+              req.body["interview-title-en"] &&
+              req.body["interview-subtitle-en"] &&
+              req.body["interview-description-en"]
+                ? req.body["interview-description-en"]
+                : "",
             audioURL: req.body["interview-audio-url"],
             imgSource:
               req.files && req.files["interview-person-image"]
@@ -36,9 +51,15 @@ module.exports = async (req, res) => {
       req.body["recipe-audio-url"]
         ? {
             "title-bg": req.body["recipe-title-bg"],
-            "title-en": req.body["recipe-title-en"],
+            "title-en":
+              req.body["recipe-title-en"] && req.body["recipe-description-en"]
+                ? req.body["recipe-title-en"]
+                : "",
             "description-bg": req.body["recipe-description-bg"],
-            "description-en": req.body["recipe-description-en"],
+            "description-en":
+              req.body["recipe-title-en"] && req.body["recipe-description-en"]
+                ? req.body["recipe-description-en"]
+                : "",
             audioURL: req.body["recipe-audio-url"],
             headingImgSource:
               req.files && req.files["recipe-header-image"]
@@ -53,9 +74,17 @@ module.exports = async (req, res) => {
       req.body["movement-audio-url"]
         ? {
             "title-bg": req.body["movement-title-bg"],
-            "title-en": req.body["movement-title-en"],
+            "title-en":
+              req.body["movement-title-en"] &&
+              req.body["movement-description-en"]
+                ? req.body["movement-title-en"]
+                : "",
             "description-bg": req.body["movement-description-bg"],
-            "description-en": req.body["movement-description-en"],
+            "description-en":
+              req.body["movement-title-en"] &&
+              req.body["movement-description-en"]
+                ? req.body["movement-description-en"]
+                : "",
             audioURL: req.body["movement-audio-url"],
             headingImgSource:
               req.files && req.files["movement-header-image"]
@@ -70,9 +99,15 @@ module.exports = async (req, res) => {
       req.body["sutra-audio-url"]
         ? {
             "title-bg": req.body["sutra-title-bg"],
-            "title-en": req.body["sutra-title-en"],
+            "title-en":
+              req.body["sutra-title-en"] && req.body["sutra-description-en"]
+                ? req.body["sutra-title-en"]
+                : "",
             "description-bg": req.body["sutra-description-bg"],
-            "description-en": req.body["sutra-description-en"],
+            "description-en":
+              req.body["sutra-title-en"] && req.body["sutra-description-en"]
+                ? req.body["sutra-description-en"]
+                : "",
             audioURL: req.body["sutra-audio-url"],
             headingImgSource:
               req.files && req.files["sutra-header-image"]

@@ -90,17 +90,19 @@ const Navbar = () => {
             </span>
           </Link>
           <div className="language-links">
-            <Link href={router.pathname + "?lang=bg"} passHref>
+            <Link href={router.asPath.split("?")[0] + "?lang=bg"} passHref>
               <span
                 className={
-                  router.query.lang == "bg" || undefined ? "ue-active-link" : ""
+                  router.query.lang == undefined || router.query.lang == "bg"
+                    ? "ue-active-link"
+                    : ""
                 }
               >
                 Bg
               </span>
             </Link>
             <div className="separator"></div>
-            <Link href={router.pathname + "?lang=en"} passHref>
+            <Link href={router.asPath.split("?")[0] + "?lang=en"} passHref>
               <span
                 className={router.query.lang == "en" ? "ue-active-link" : ""}
               >
