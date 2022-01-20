@@ -25,7 +25,9 @@ const CreateEditForm = ({ props, method, url }: CreateEditProps) => {
       <div>
         <div>
           <h1>Post</h1>
-          <label htmlFor="post-name">Name:</label>
+          <label htmlFor="post-name">
+            Name<span>*</span>:
+          </label>
           <Field
             name="post-name"
             type="text"
@@ -40,7 +42,9 @@ const CreateEditForm = ({ props, method, url }: CreateEditProps) => {
             <ErrorMessage name="post-name" />
           </div>
           <h1>Interview</h1>
-          <label htmlFor="interview-title-bg">Bulgarian Title:</label>
+          <label htmlFor="interview-title-bg">
+            Bulgarian Title<span>*</span>:
+          </label>
           <Field
             name="interview-title-bg"
             type="text"
@@ -54,7 +58,9 @@ const CreateEditForm = ({ props, method, url }: CreateEditProps) => {
             placeholder="Enter title:"
             className="interview-required-field"
           />
-          <label htmlFor="interview-subtitle-bg">Bulgarian Subtitle:</label>
+          <label htmlFor="interview-subtitle-bg">
+            Bulgarian Subtitle<span>*</span>:
+          </label>
           <Field
             name="interview-subtitle-bg"
             type="text"
@@ -71,7 +77,7 @@ const CreateEditForm = ({ props, method, url }: CreateEditProps) => {
           />
 
           <label htmlFor="interview-description-bg">
-            Bulgarian Description:
+            Bulgarian Description<span>*</span>:
           </label>
 
           <ReactQuill
@@ -122,7 +128,9 @@ const CreateEditForm = ({ props, method, url }: CreateEditProps) => {
               className="interview-required-field"
             /> */}
 
-          <label htmlFor="interview-audio-url">Audio URL:</label>
+          <label htmlFor="interview-audio-url">
+            Audio URL<span>*</span>:
+          </label>
           <Field
             name="interview-audio-url"
             type="text"
@@ -201,7 +209,9 @@ const CreateEditForm = ({ props, method, url }: CreateEditProps) => {
       <div>
         <div>
           <h1>Recipe</h1>
-          <label htmlFor="recipe-title">Bulgarian Title:</label>
+          <label htmlFor="recipe-title">
+            Bulgarian Title<span>*</span>:
+          </label>
           <Field
             name="recipe-title-bg"
             type="text"
@@ -217,7 +227,9 @@ const CreateEditForm = ({ props, method, url }: CreateEditProps) => {
             className="recipe-required-field"
           />
 
-          <label htmlFor="recipe-description-bg">Bulgarian Description:</label>
+          <label htmlFor="recipe-description-bg">
+            Bulgarian Description<span>*</span>:
+          </label>
 
           <ReactQuill
             className="recipe-required-field"
@@ -268,7 +280,9 @@ const CreateEditForm = ({ props, method, url }: CreateEditProps) => {
               value={editorRef.current.getContent()}
             /> */}
 
-          <label htmlFor="recipe-audio-url">Audio URL:</label>
+          <label htmlFor="recipe-audio-url">
+            Audio URL<span>*</span>:
+          </label>
           <Field
             name="recipe-audio-url"
             type="text"
@@ -315,7 +329,9 @@ const CreateEditForm = ({ props, method, url }: CreateEditProps) => {
       <div>
         <div>
           <h1>Movement</h1>
-          <label htmlFor="movement-title-bg">Bulgarian Title:</label>
+          <label htmlFor="movement-title-bg">
+            Bulgarian Title<span>*</span>:
+          </label>
           <Field
             name="movement-title-bg"
             type="text"
@@ -332,7 +348,7 @@ const CreateEditForm = ({ props, method, url }: CreateEditProps) => {
           />
 
           <label htmlFor="movement-description-bg">
-            Bulgarian Description:
+            Bulgarian Description<span>*</span>:
           </label>
 
           <ReactQuill
@@ -373,7 +389,9 @@ const CreateEditForm = ({ props, method, url }: CreateEditProps) => {
             style={{ display: "none" }}
           />
 
-          <label htmlFor="movement-audio-url">Audio URL:</label>
+          <label htmlFor="movement-audio-url">
+            Audio URL<span>*</span>:
+          </label>
           <Field
             name="movement-audio-url"
             type="text"
@@ -418,7 +436,9 @@ const CreateEditForm = ({ props, method, url }: CreateEditProps) => {
       <div>
         <div>
           <h1>Sutra</h1>
-          <label htmlFor="sutra-title-bg">Bulgarian Title:</label>
+          <label htmlFor="sutra-title-bg">
+            Bulgarian Title<span>*</span>:
+          </label>
           <Field
             name="sutra-title-bg"
             type="text"
@@ -434,7 +454,9 @@ const CreateEditForm = ({ props, method, url }: CreateEditProps) => {
             className="sutra-required-field"
           />
 
-          <label htmlFor="sutra-description-bg">Bulgarian Description:</label>
+          <label htmlFor="sutra-description-bg">
+            Bulgarian Description<span>*</span>:
+          </label>
 
           <ReactQuill
             className="sutra-required-field"
@@ -474,7 +496,9 @@ const CreateEditForm = ({ props, method, url }: CreateEditProps) => {
             style={{ display: "none" }}
           />
 
-          <label htmlFor="sutra-audio-url">Audio URL:</label>
+          <label htmlFor="sutra-audio-url">
+            Audio URL<span>*</span>:
+          </label>
           <Field
             name="sutra-audio-url"
             type="text"
