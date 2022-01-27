@@ -54,7 +54,7 @@ const Navbar = () => {
                 setExtendedNavbar(false);
               }}
             >
-              Интервюта
+              {language == "bg" ? "Интервюта" : "Interviews"}
             </span>
           </Link>
           <Link href={"/recipes?lang=" + language} passHref>
@@ -64,7 +64,7 @@ const Navbar = () => {
                 setExtendedNavbar(false);
               }}
             >
-              Рецепти
+              {language == "bg" ? "Рецепти" : "Recipes"}
             </span>
           </Link>
           <Link href={"/movements?lang=" + language} passHref>
@@ -76,7 +76,7 @@ const Navbar = () => {
                 setExtendedNavbar(false);
               }}
             >
-              Движение
+              {language == "bg" ? "Движение" : "Movement"}
             </span>
           </Link>
           <Link href={"/sutras?lang=" + language} passHref>
@@ -86,7 +86,7 @@ const Navbar = () => {
                 setExtendedNavbar(false);
               }}
             >
-              Сутри
+              {language == "bg" ? "Сутри" : "Sutras"}
             </span>
           </Link>
           <div className="language-links">
