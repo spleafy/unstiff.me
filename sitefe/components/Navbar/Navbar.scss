@@ -22,7 +22,28 @@
       font-size: 15px;
       margin: 0 30px;
       cursor: pointer;
+      position: relative;
       color: var(--ue-secondary-color);
+      transition: color 0.2s ease-in-out;
+
+      &::after {
+        position: absolute;
+        content: "";
+        width: 0;
+        height: 2px;
+        background-color: rgb(100, 100, 100);
+        transition: width 0.2s ease-in-out;
+        top: 100%;
+        left: 0;
+      }
+
+      &:hover {
+        color: rgb(100, 100, 100);
+
+        &::after {
+          width: 100%;
+        }
+      }
 
       .ue-navbar__close {
         display: none;
@@ -30,6 +51,10 @@
 
       &.ue-active-link {
         color: #fff;
+
+        &::after {
+          display: none;
+        }
       }
     }
 
