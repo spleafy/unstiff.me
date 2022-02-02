@@ -3,18 +3,33 @@ import PlayButton from "../PlayButton/PlayButton";
 import ReadMoreButton from "../ReadMoreButton/ReadMoreButton";
 import Link from "next/link";
 
-export const definePostLabel = (type: any) => {
-  switch (type) {
-    case "interview":
-      return "Интервю";
-    case "recipe":
-      return "Рецепта";
-    case "movement":
-      return "Движение";
-    case "sutra":
-      return "Сутра";
-    default:
-      return "Error";
+export const definePostLabel = (type: any, language: any) => {
+  if (language == "bg") {
+    switch (type) {
+      case "interview":
+        return "Интервю";
+      case "recipe":
+        return "Рецепта";
+      case "movement":
+        return "Движение";
+      case "sutra":
+        return "Сутра";
+      default:
+        return "Error";
+    }
+  } else {
+    switch (type) {
+      case "interview":
+        return "Interview";
+      case "recipe":
+        return "Recipe";
+      case "movement":
+        return "Movement";
+      case "sutra":
+        return "Sutra";
+      default:
+        return "Error";
+    }
   }
 };
 
@@ -76,7 +91,7 @@ const Post = (props: PostProps) => {
         )}
 
         <div className="ue-person-post__label">
-          {definePostLabel(props.type)}
+          {definePostLabel(props.type, props.language)}
         </div>
         <div className="ue-person-post__profile">
           {props.imgSource ? (

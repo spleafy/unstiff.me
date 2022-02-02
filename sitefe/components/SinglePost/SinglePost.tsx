@@ -49,7 +49,7 @@ const SinglePost = ({ post, otherPosts, type }: SinglePostProps) => {
         <audio src={post[type].audioURL}></audio>
         <div>
           <div className="ue-main-header__label">
-            {definePostLabel(post[type].type)}
+            {definePostLabel(post[type].type, language)}
           </div>
           <div className="ue-main-header__person">
             {post[type].imgSource ? (
