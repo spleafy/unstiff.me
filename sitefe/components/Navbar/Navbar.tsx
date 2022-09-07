@@ -86,7 +86,7 @@ const Navbar = () => {
                 setExtendedNavbar(false);
               }}
             >
-              {language == "bg" ? "Сутри" : "Sutras"}
+              {language == "bg" ? "Йога" : "Yoga"}
             </span>
           </Link>
           <div className="language-links">
