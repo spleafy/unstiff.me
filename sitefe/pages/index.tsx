@@ -21,7 +21,9 @@ const Home: NextPage = ({ posts }: any) => {
     <>
       <div className="ue-blue-background"></div>
       <div className="ue-main-video">
-        <video src="yoga.mp4" controls></video>
+        <video controls poster="video-poster.png">
+          <source src="yoga.mp4" type="video/mp4"/>
+        </video>
       </div>
       <div className="ue-main-cards">
         {posts.length > 0 ? (
